@@ -1,0 +1,10 @@
+git clone + url (ok(
+git add + test.txt (si test.txt est ajouté)
+git commit -a -m "commit n1" (ajouter un commit)
+git push (ajouter modif au projet)
+git pull (recuperer les modifs faites par les autres)
+git status (voir les commits effectués)
+
+
+ls (voir fichiers du repertoire)
+cd / +lien repertoire (changer de rep)
