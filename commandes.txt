@@ -8,3 +8,5 @@ git status (voir les commits effectués)
 
 ls (voir fichiers du repertoire)
 cd / +lien repertoire (changer de rep)
+
+o
