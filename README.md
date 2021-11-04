@@ -9,7 +9,7 @@ découvrir un trésor. Dans le labyrinthe il peut y avoir des monstres de diffé
 essayent d’attaquer le personnage.
 
 
-Les Backlog et les diagrammes des différents sprints sont dans le fichier "Sprint"
+Les Backlog et les diagrammes des différents sprints sont dans le fichier "Sprints"
 
 version java :
 
