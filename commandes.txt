@@ -6,5 +6,6 @@ git pull (recuperer les modifs faites par les autres)
 git status (voir les commits effectués)
 
 
-ls (voir fichiers du repertoire)
-cd / +lien repertoire (changer de rep)
+ls (voir fichiers du repertoire). Arguments : -al pour avoir plus d'informations sur les fichiers (taille, date, droits...)
+cd / +lien repertoire (changer de rep). "." correspond au répertoire actuel et ".." au répertoire parent 
+pwd pour saavoir où on est dans le répertoire
