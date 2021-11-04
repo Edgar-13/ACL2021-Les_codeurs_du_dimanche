@@ -20,3 +20,7 @@ Backlog sprint 1 :
            5-Le personnage a de la vie
            6-placer un ennemi    
            7-mettre un chrono 
+
+version java :
+
+How to run :
