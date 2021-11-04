@@ -13,9 +13,10 @@ Notre jeu :
 
 
 Backlog sprint 1 :
-           importer perso à partir d'un fichier
-           importer un fond à partir d'un fichier
-           faire se deplacer le personnage
-           creer obstacles
-           mettre de la vie au personnage
-           
+           1-faire se deplacer le personnage sur la map
+           2-placer des obstacles 
+           3-le joueur ne peut pas traverser les obstacles
+           4-mettre une arrivée
+           5-Le personnage a de la vie
+           6-placer un ennemi    
+           7-mettre un chrono 
