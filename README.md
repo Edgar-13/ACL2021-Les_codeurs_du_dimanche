@@ -8,8 +8,14 @@ graphique.  Le  jeu  consiste  à  déplacer  un  personnage  dans  un  labyrint
 découvrir un trésor. Dans le labyrinthe il peut y avoir des monstres de différents types qui 
 essayent d’attaquer le personnage.
 
+Notre jeu :
+10 niveaux avec un/des adversaire.s de plus en plus durs à passer 
 
 
 Backlog sprint 1 :
-          1-choisir perso + fond
-          2-
+           importer perso à partir d'un fichier
+           importer un fond à partir d'un fichier
+           faire se deplacer le personnage
+           creer obstacles
+           mettre de la vie au personnage
+           
