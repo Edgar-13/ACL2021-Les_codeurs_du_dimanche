@@ -47,9 +47,9 @@ public class PacmanPainter implements GamePainter {
 		
 		Image image = null;
 		try {
-			image = ImageIO.read(new File("C:\\Users\\esteb\\Documents\\ensem\\2A\\analyse et conception de logiciels\\projet\\ACL2021-Les_codeurs_du_dimanche\\JeuTemplate\\map1.jpg"));
+			image = ImageIO.read(new File("map1.jpg"));
 			fond.drawImage(image, 0, 0,1000,1000, null);
-			image = ImageIO.read(new File("C:\\Users\\esteb\\Documents\\ensem\\2A\\analyse et conception de logiciels\\projet\\ACL2021-Les_codeurs_du_dimanche\\JeuTemplate\\pacman.png"));
+			image = ImageIO.read(new File("pacman.png"));
 			player.drawImage(image, 0, 0, 50, 50, null);
 			
 		} 
