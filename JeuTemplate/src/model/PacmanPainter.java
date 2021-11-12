@@ -25,8 +25,11 @@ public class PacmanPainter implements GamePainter {
 	/**
 	 * la taille des cases
 	 */
-	protected static final int WIDTH = 1000;
-	protected static final int HEIGHT = 1000;
+	protected static final int WIDTH_bg1 = 1000;
+	protected static final int HEIGHT_bg1 = 1000;
+	
+	protected static final int WIDTH_pacman = 50;
+	protected static final int HEIGHT_pacman = 50;
 
 	/**
 	 * appelle constructeur parent
@@ -41,16 +44,20 @@ public class PacmanPainter implements GamePainter {
 	 * methode  redefinie de Afficheur retourne une image du jeu
 	 */
 	@Override
-	public void draw(BufferedImage im) {
-		Graphics2D fond = (Graphics2D) im.getGraphics();
+	public void draw (BufferedImage im) {
+		Graphics2D bg1 = (Graphics2D) im.getGraphics();
 		Graphics2D player = (Graphics2D) im.getGraphics();
 		
 		Image image = null;
 		try {
+			
+			// Background 1
 			image = ImageIO.read(new File("map1.jpg"));
-			fond.drawImage(image, 0, 0,1000,1000, null);
+			bg1.drawImage(image, 0, 0,WIDTH_bg1,HEIGHT_bg1, null);
+			
+			
 			image = ImageIO.read(new File("pacman.png"));
-			player.drawImage(image, 0, 0, 50, 50, null);
+			player.drawImage(image, 0, 0, WIDTH_pacman, HEIGHT_pacman, null);
 			
 		} 
 		catch (IOException e) {
@@ -59,15 +66,16 @@ public class PacmanPainter implements GamePainter {
 		
 		
 	}
+	
 
 	@Override
 	public int getWidth() {
-		return WIDTH;
+		return WIDTH_bg1;
 	}
 
 	@Override
 	public int getHeight() {
-		return HEIGHT;
+		return HEIGHT_bg1;
 	}
 
 }

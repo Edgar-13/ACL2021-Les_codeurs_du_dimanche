@@ -1,9 +1,6 @@
 package engine;
 
-/**
- * @author Horatiu Cirstea, Vincent Thomas
- *
- */
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
