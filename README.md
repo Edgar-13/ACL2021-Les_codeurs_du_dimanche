@@ -14,3 +14,13 @@ Les Backlog et les diagrammes des différents sprints sont dans le fichier "Spri
 version java :
 
 How to run :
+
+
+version python :
+
+comment lancer le jeu depuis gitbash : 
+1/insatller les module : normalement ici il ne manque que pygame
+taper dans gitbash: python -m pip install pygame
+
+2/ lancer le jeu : 
+taper dans gitbash: python main.py
