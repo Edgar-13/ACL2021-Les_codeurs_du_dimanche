@@ -14,7 +14,6 @@ class Player():
         self.image = pygame.image.load(f'assets/pacman.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
-        print(self.rect)
         self.rect.x=0
         self.rect.y=0
         self.game=game
