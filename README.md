@@ -19,8 +19,10 @@ How to run :
 version python :
 
 comment lancer le jeu depuis gitbash : 
-1/insatller les module : normalement ici il ne manque que pygame
-taper dans gitbash: python -m pip install pygame
+1/lancer gitbash depuis le dossier game_acl
 
-2/ lancer le jeu : 
-taper dans gitbash: python main.py
+2/insatller les module : normalement ici il ne manque que pygame
+taper: python -m pip install pygame
+
+3/ lancer le jeu : 
+taper: python main.py

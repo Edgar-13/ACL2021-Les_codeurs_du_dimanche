@@ -7,7 +7,7 @@ pygame.init()
 clock = pygame.time.Clock()
 FPS = 50000
 
-longueur_ecran=1000
+longueur_ecran=999
 largeur_ecran=1000
 #affichage
 pygame.display.set_caption("jeu comette")
