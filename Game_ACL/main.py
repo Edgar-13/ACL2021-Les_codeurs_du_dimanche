@@ -10,7 +10,7 @@ FPS = 50000
 longueur_ecran=500
 largeur_ecran=500
 #affichage
-pygame.display.set_caption("jeu comette")
+pygame.display.set_caption("jeu pacman")
 screen = pygame.display.set_mode((longueur_ecran,largeur_ecran))
 
 background1 = pygame.image.load('assets/map1.jpg')
