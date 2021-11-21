@@ -14,8 +14,8 @@ class Monster(pygame.sprite.Sprite):
         self.image = pygame.image.load(f'assets/'+name+'.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
-        self.rect.x = 900
-        self.rect.y = 0 - offset
+        self.rect.x = 500
+        self.rect.y = 100
 
 
     def set_speed(self,speed):

@@ -15,13 +15,13 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load(f'assets/pacman.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
-        self.rect.x=0
-        self.rect.y=0
+        self.rect.x=50
+        self.rect.y=50
         self.game=game
 
 
     def move_right(self):
-        if not self.game.check_collision(self, self.game.all_monsters):
+        if not self.game.check_collision(self, self.game.all_monsters) :
             self.rect.x+=self.velocity
 
     def move_left(self):
@@ -29,6 +29,7 @@ class Player(pygame.sprite.Sprite):
             self.rect.x-=self.velocity
 
     def move_up(self):
+
         self.rect.y-=self.velocity
 
     def move_down(self):

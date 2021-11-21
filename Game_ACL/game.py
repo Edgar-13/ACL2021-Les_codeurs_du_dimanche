@@ -2,21 +2,34 @@ import pygame
 from player import Player
 from monster import Ghost_red
 from monster import Monster
-
+from obstacles import Obstacles
 
 class Game():
     def __init__(self):
         #definir si le jeu est en cours
         self.is_playing = False
+        #groupe de sprite joueur
         self.all_player = pygame.sprite.Group()
         self.player = Player(self)
         self.all_player.add(self.player)
         self.pressed = {}
         self.score = 0
+        #monstres
         self.all_monsters = pygame.sprite.Group()
-        self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
         self.spawn_monster(Ghost_red)
+        #obstacles
+        self.all_obstacles =pygame.sprite.Group()
 
+        self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
+        #ajout des murs autour
+        self.ajouter_obstacle(1200,30,0,-50)
+        self.ajouter_obstacle(1200, 30, 970, -50)
+        self.ajouter_obstacle(30, 1200, 0, 0)
+        self.ajouter_obstacle(30, 1200, 0, 970)
+
+    def ajouter_obstacle(self,largeur,hauteur,x,y):
+        obstacles = Obstacles(largeur,hauteur,x,y)
+        self.all_obstacles.add(obstacles)
 
     def spawn_monster(self,name):
         self.all_monsters.add(name.__call__(self))
@@ -44,6 +57,9 @@ class Game():
 
         # afficher les monstres
         self.all_monsters.draw(screen)
+
+        # afficher les monstres
+        self.all_obstacles.draw(screen)
 
         # voir si on appui sur une touche
 
