@@ -2,10 +2,10 @@ import pygame
 
 class Obstacles(pygame.sprite.Sprite):
 
-    def __init__(self, hauteur,largeur,x,y):
+    def __init__(self, hauteur, largeur, x, y):
         super().__init__()
         self.hauteur = hauteur
-        self. largeur = largeur
+        self.largeur = largeur
         self.x = x
         self.y = y
         self.image = pygame.image.load(f'assets/murs.png')
