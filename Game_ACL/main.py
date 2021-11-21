@@ -7,14 +7,14 @@ pygame.init()
 clock = pygame.time.Clock()
 FPS = 50000
 
-longueur_ecran=1000
-largeur_ecran=1000
+longueur_ecran=700
+largeur_ecran=700
 #affichage bla
 pygame.display.set_caption("jeu comette")
 screen = pygame.display.set_mode((longueur_ecran,largeur_ecran))
 
 background1 = pygame.image.load('assets/map1.jpg')
-background1 = pygame.transform.scale(background1, (1000, 1000))
+background1 = pygame.transform.scale(background1, (largeur_ecran, longueur_ecran))
 
 game = Game()
 

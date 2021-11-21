@@ -1,0 +1,19 @@
+Index: Game_ACL/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import pygame\r\nimport math\r\nfrom game import Game\r\npygame.init()\r\n#oui\r\n#def horloge\r\nclock = pygame.time.Clock()\r\nFPS = 50000\r\n\r\nlongueur_ecran=751\r\nlargeur_ecran=751\r\n#affichage\r\npygame.display.set_caption(\"jeu comette\")\r\nscreen = pygame.display.set_mode((longueur_ecran,largeur_ecran))\r\n\r\nbackground1 = pygame.image.load('assets/map1.jpg')\r\nbackground1 = pygame.transform.scale(background1, (1000, 1000))\r\n\r\ngame = Game()\r\n\r\n\r\nrunning=True\r\n#boucle condition d'allumage\r\nwhile running :\r\n\r\n\r\n\r\n    #bg\r\n    screen.blit(background1,(0,0))\r\n\r\n    #verifié si jeu en cours\r\n    if game.is_playing :\r\n        game.update(screen)\r\n\r\n\r\n\r\n\r\n    # mettre a jour ecran\r\n    pygame.display.flip()\r\n\r\n\r\n    #si on ferme\r\n    for event in pygame.event.get():\r\n        game.start()\r\n        if event.type == pygame.QUIT:\r\n            running = False\r\n            pygame.quit()\r\n        #si joueur lache touche\r\n        elif event.type == pygame.KEYDOWN:\r\n            game.pressed[event.key] = True\r\n\r\n\r\n\r\n\r\n        elif event.type == pygame.KEYUP:\r\n            game.pressed[event.key] = False\r\n\r\n\r\n\r\n    #fixer le nbr de fps\r\n    clock.tick(FPS)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Game_ACL/main.py b/Game_ACL/main.py
+--- a/Game_ACL/main.py	(revision eb62be4d77f61060f1048f6e1a86bcf27cc58ba8)
++++ b/Game_ACL/main.py	(date 1637171341999)
+@@ -9,7 +9,7 @@
+ 
+ longueur_ecran=751
+ largeur_ecran=751
+-#affichage
++#affichage bla
+ pygame.display.set_caption("jeu comette")
+ screen = pygame.display.set_mode((longueur_ecran,largeur_ecran))
+ 
