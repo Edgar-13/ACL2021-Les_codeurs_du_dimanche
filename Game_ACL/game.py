@@ -21,7 +21,6 @@ class Game():
         self.spawn_monster(Ghost_red)
         #obstacles
         self.all_obstacles =pygame.sprite.Group()
-
         self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
         #ajout des murs autour
         # mur de gauche
