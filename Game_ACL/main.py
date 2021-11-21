@@ -8,7 +8,7 @@ pygame.init()
 clock = pygame.time.Clock()
 FPS = 50000
 
-# Récupère la taille de notre écran
+# Récupère la taille de notre écran 2
 screen_info = pygame.display.Info()
 relation = 3 / 4
 screen_width = relation * screen_info.current_w
