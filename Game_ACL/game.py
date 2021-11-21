@@ -53,7 +53,7 @@ class Game():
 
 
     def update(self,screen):
-        # print(len(self.check_collision(self.player,self.all_obstacles)))
+        print(len(self.check_collision(self.player,self.all_obstacles)))
         #print(self.derniere_touche)
         #afficher score
 
