@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="nom du jeu" />
+    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="taille fenetre" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637239150414</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="taille fenetre">
+      <created>1637503845469</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1637503845484</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +167,7 @@
     <MESSAGE value="suppr print" />
     <MESSAGE value="taille ecran" />
     <MESSAGE value="nom du jeu" />
-    <option name="LAST_COMMIT_MESSAGE" value="nom du jeu" />
+    <MESSAGE value="taille fenetre" />
+    <option name="LAST_COMMIT_MESSAGE" value="taille fenetre" />
   </component>
 </project>
