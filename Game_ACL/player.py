@@ -2,9 +2,10 @@ import pygame
 
 
 
-class Player():
+class Player(pygame.sprite.Sprite):
 
     def __init__(self,game):
+        super().__init__()
         self.width = 100
         self.height = 100
         self.health = 100
@@ -20,16 +21,19 @@ class Player():
 
 
     def move_right(self):
-        self.rect.x+=self.velocity
+        if not self.game.check_collision(self, self.game.all_monsters):
+            self.rect.x+=self.velocity
 
     def move_left(self):
-        self.rect.x-=self.velocity
+        if not self.game.check_collision(self, self.game.all_monsters):
+            self.rect.x-=self.velocity
 
     def move_up(self):
         self.rect.y-=self.velocity
 
     def move_down(self):
-        self.rect.y += self.velocity
+        if not self.game.check_collision(self, self.game.all_monsters):
+            self.rect.y += self.velocity
 
     def update_health_bar(self,surface):
         pygame.draw.rect(surface,(60,60,60),[self.rect.x+5, self.rect.y, self.health_max,5])

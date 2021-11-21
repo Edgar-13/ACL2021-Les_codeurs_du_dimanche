@@ -1,21 +1,31 @@
 import pygame
 from player import Player
-
+from monster import Ghost_red
+from monster import Monster
 
 
 class Game():
     def __init__(self):
         #definir si le jeu est en cours
         self.is_playing = False
+        self.all_player = pygame.sprite.Group()
         self.player = Player(self)
+        self.all_player.add(self.player)
         self.pressed = {}
         self.score = 0
+        self.all_monsters = pygame.sprite.Group()
         self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
+        self.spawn_monster(Ghost_red)
 
 
+    def spawn_monster(self,name):
+        self.all_monsters.add(name.__call__(self))
 
     def start (self):
         self.is_playing = True
+        # afficher les monstres
+
+
 
     def update(self,screen):
         #afficher score
@@ -26,6 +36,14 @@ class Game():
         # joueur
         screen.blit(self.player.image, self.player.rect)
         self.player.update_health_bar(screen)
+
+        #monstres
+        for monster in self.all_monsters:
+            monster.update_health_bar(screen)
+            monster.move_alea()
+
+        # afficher les monstres
+        self.all_monsters.draw(screen)
 
         # voir si on appui sur une touche
 
@@ -42,8 +60,6 @@ class Game():
         self.player.health = self.player.health_max
         self.is_playing = False
         self.score = 0
-        self.sound_manager.play('game_over')
-        pygame.mixer.music.stop()
 
 
 

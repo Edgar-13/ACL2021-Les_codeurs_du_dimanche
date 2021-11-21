@@ -2,14 +2,14 @@ import pygame
 import math
 from game import Game
 pygame.init()
-#oui
+
 #def horloge
 clock = pygame.time.Clock()
 FPS = 50000
 
 longueur_ecran=1000
 largeur_ecran=1000
-#affichage bla
+#affichage
 pygame.display.set_caption("jeu comette")
 screen = pygame.display.set_mode((longueur_ecran,largeur_ecran))
 
@@ -31,7 +31,6 @@ while running :
     #verifié si jeu en cours
     if game.is_playing :
         game.update(screen)
-
 
 
 
