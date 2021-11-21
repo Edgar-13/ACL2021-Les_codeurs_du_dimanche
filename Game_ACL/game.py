@@ -5,9 +5,9 @@ from monster import Monster
 from obstacles import Obstacles
 
 class Game():
-    def __init__(self, screen_info):
-        self.screen_width = 3 * screen_info.current_w / 4
-        self.screen_height = 3 * screen_info.current_h / 4
+    def __init__(self, screen_width, screen_height):
+        self.screen_width = screen_width
+        self.screen_height = screen_height
         #definir si le jeu est en cours
         self.is_playing = False
         #groupe de sprite joueur
