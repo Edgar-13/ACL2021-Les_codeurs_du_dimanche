@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="taille fenetre" />
+    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="taille fenetre">
+      <change beforePath="$PROJECT_DIR$/Game_ACL/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game_ACL/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637503845484</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="taille fenetre">
+      <created>1637504033908</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1637504033908</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
