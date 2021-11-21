@@ -28,23 +28,23 @@ class Monster(pygame.sprite.Sprite):
         pygame.draw.rect(surface,(111,210,46),[self.rect.x+15,self.rect.y-20,self.health,5])
 
     def move_alea(self):
-        signe = ["x","y"]
+
         rand = random.randint(0, 4)
-        if not self.game.check_collision(self,self.game.all_player):
+        # if not self.game.check_collision(self,self.game.all_player):
 
-            if rand == 0 :
-                self.rect.y -= self.velocity
-
-            elif rand == 1 :
-                self.rect.y += self.velocity
-
-            elif rand == 2:
-                self.rect.x += self.velocity
-
-            elif rand == 3:
-                self.rect.x -= self.velocity
-        else :
-            self.game.player.dammage(self.attack)
+        #     if rand == 0 :
+        #         self.rect.y -= self.velocity
+        #
+        #     elif rand == 1 :
+        #         self.rect.y += self.velocity
+        #
+        #     elif rand == 2:
+        #         self.rect.x += self.velocity
+        #
+        #     elif rand == 3:
+        #         self.rect.x -= self.velocity
+        # else :
+        #     self.game.player.dammage(self.attack)
 
 class Ghost_red(Monster):
 

@@ -6,6 +6,7 @@ from obstacles import Obstacles
 
 class Game():
     def __init__(self, screen_width, screen_height):
+
         self.screen_width = screen_width
         self.screen_height = screen_height
         #definir si le jeu est en cours
@@ -15,7 +16,11 @@ class Game():
         self.player = Player(self)
         self.all_player.add(self.player)
         self.pressed = {}
+
         self.score = 0
+
+
+        self.derniere_touche = "rien"
         #monstres
         self.all_monsters = pygame.sprite.Group()
         self.spawn_monster(Ghost_red)
@@ -33,6 +38,8 @@ class Game():
         # mur du bas
         self.ajouter_obstacle(self.screen_height / 20, self.screen_width, 0, self.screen_height - self.screen_height / 22)
 
+        self.ajouter_obstacle(self.screen_height / 20, self.screen_width/5, 200, 500)
+
     def ajouter_obstacle(self,largeur,hauteur,x,y):
         obstacles = Obstacles(largeur,hauteur,x,y)
         self.all_obstacles.add(obstacles)
@@ -47,6 +54,8 @@ class Game():
 
 
     def update(self,screen):
+        # print(len(self.check_collision(self.player,self.all_obstacles)))
+        #print(self.derniere_touche)
         #afficher score
 
         score_text = self.font.render(f"Score : {self.score}",1,(0,0,0))
@@ -59,7 +68,7 @@ class Game():
         #monstres
         for monster in self.all_monsters:
             monster.update_health_bar(screen)
-            monster.move_alea()
+            #monster.move_alea()
 
         # afficher les monstres
         self.all_monsters.draw(screen)
@@ -69,13 +78,13 @@ class Game():
 
         # voir si on appui sur une touche
 
-        if self.pressed.get(pygame.K_RIGHT) and self.player.rect.x + self.player.rect.width < screen.get_width():
+        if self.pressed.get(pygame.K_RIGHT) :
             self.player.move_right()
-        elif self.pressed.get(pygame.K_LEFT) and self.player.rect.x >0:
+        elif self.pressed.get(pygame.K_LEFT) :
             self.player.move_left()
-        elif self.pressed.get(pygame.K_UP) and self.player.rect.y >0:
+        elif self.pressed.get(pygame.K_UP):
             self.player.move_up()
-        elif self.pressed.get(pygame.K_DOWN) and self.player.rect.y + self.player.rect.height <screen.get_height():
+        elif self.pressed.get(pygame.K_DOWN):
             self.player.move_down()
 
     def game_over(self):
