@@ -5,7 +5,9 @@ from monster import Monster
 from obstacles import Obstacles
 
 class Game():
-    def __init__(self):
+    def __init__(self, screen_info):
+        self.screen_width = 3 * screen_info.current_w / 4
+        self.screen_height = 3 * screen_info.current_h / 4
         #definir si le jeu est en cours
         self.is_playing = False
         #groupe de sprite joueur
@@ -22,10 +24,14 @@ class Game():
 
         self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
         #ajout des murs autour
-        self.ajouter_obstacle(1200,30,0,-50)
-        self.ajouter_obstacle(1200, 30, 970, -50)
-        self.ajouter_obstacle(30, 1200, 0, 0)
-        self.ajouter_obstacle(30, 1200, 0, 970)
+        # mur de gauche
+        self.ajouter_obstacle(self.screen_width, self.screen_height / 20, 0, 0)
+        # mur de droite
+        self.ajouter_obstacle(self.screen_width, self.screen_height / 20, self.screen_width - self.screen_height / 22, 0)
+        # mur du haut
+        self.ajouter_obstacle(self.screen_height / 20, self.screen_width, 0, 0)
+        # mur du bas
+        self.ajouter_obstacle(self.screen_height / 20, self.screen_width, 0, self.screen_height - self.screen_height / 22)
 
     def ajouter_obstacle(self,largeur,hauteur,x,y):
         obstacles = Obstacles(largeur,hauteur,x,y)
