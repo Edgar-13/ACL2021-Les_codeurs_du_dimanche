@@ -29,8 +29,8 @@ class Player(pygame.sprite.Sprite):
             self.rect.x-=self.velocity
 
     def move_up(self):
-
-        self.rect.y-=self.velocity
+        if not self.game.check_collision(self, self.game.all_monsters):
+            self.rect.y-=self.velocity
 
     def move_down(self):
         if not self.game.check_collision(self, self.game.all_monsters):
