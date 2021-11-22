@@ -26,5 +26,15 @@ Backlog sprint 1 :
            7-mettre un chrono 
  
 diagramme de séquence : https://online.visual-paradigm.com/community/share/diagramme-de-s-quence-sprint1-qqyzjz9uj
-diagramme de classe : https://online.visual-paradigm.com/community/share/diagramme-de-classe-sprint-1-qqze32c2e         
+diagramme de classe : https://online.visual-paradigm.com/community/share/diagramme-de-classe-sprint-1-qqze32c2e 
+
+Bilan : le personnage se déplace, il y a des obstacles (emplacements et nombre à définir) les obstacles ne sont pas franchissables, on peut ajouter des ennemis, le personnage et les ennemis ont de la vie.
+        Il manque ne chrono et une arrivé.
         
+Backlog sprint 2 :
+           1- mettre une arrivé
+           2- faire bouger le monstre
+           3- mettre chrono
+           4- projectiles
+           5- deuxième type de monstre qui tire des missiles
+            
