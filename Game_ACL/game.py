@@ -23,7 +23,7 @@ class Game():
         self.derniere_touche = "rien"
         #monstres
         self.all_monsters = pygame.sprite.Group()
-        self.spawn_monster(Ghost_red)
+        self.spawn_monster(Ghost_red,100,500)
         #obstacles
         self.all_obstacles =pygame.sprite.Group()
         self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
@@ -43,8 +43,8 @@ class Game():
         obstacles = Obstacles(largeur,hauteur,x,y)
         self.all_obstacles.add(obstacles)
 
-    def spawn_monster(self,name):
-        self.all_monsters.add(name.__call__(self))
+    def spawn_monster(self,name,xm,ym):
+        self.all_monsters.add(name.__call__(self,xm,ym))
 
     def start (self):
         self.is_playing = True
@@ -67,7 +67,7 @@ class Game():
         #monstres
         for monster in self.all_monsters:
             monster.update_health_bar(screen)
-            #monster.move_alea()
+            monster.move_alea()
 
         # afficher les monstres
         self.all_monsters.draw(screen)
@@ -79,22 +79,22 @@ class Game():
 
         if self.pressed.get(pygame.K_RIGHT) and self.player.rect.x + self.player.rect.width < self.screen_width:
             self.player.move_right()
-            if self.check_collision(self.player, self.all_obstacles):
+            if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_left()
 
         elif self.pressed.get(pygame.K_LEFT) and self.player.rect.x > -5:
             self.player.move_left()
-            if self.check_collision(self.player, self.all_obstacles):
+            if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_right()
 
         elif self.pressed.get(pygame.K_UP) and self.player.rect.y > 0:
             self.player.move_up()
-            if self.check_collision(self.player, self.all_obstacles):
+            if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_down()
 
         elif self.pressed.get(pygame.K_DOWN) and self.player.rect.y + self.player.rect.height < self.screen_height - 5:
             self.player.move_down()
-            if self.check_collision(self.player, self.all_obstacles):
+            if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_up()
 
     def game_over(self):

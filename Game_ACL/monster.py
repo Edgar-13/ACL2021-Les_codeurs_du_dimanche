@@ -4,7 +4,7 @@ import random
 
 class Monster(pygame.sprite.Sprite):
 
-    def __init__(self, game, name, size, offset=0):
+    def __init__(self, game, name, size,xm,ym, offset=0):
         super().__init__()
         self.game = game
         self.width = 100
@@ -15,8 +15,8 @@ class Monster(pygame.sprite.Sprite):
         self.image = pygame.image.load(f'assets/'+name+'.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
-        self.rect.x = 500
-        self.rect.y = 100
+        self.rect.x = xm
+        self.rect.y = ym
 
 
     def set_speed(self,speed):
@@ -31,7 +31,7 @@ class Monster(pygame.sprite.Sprite):
 
         rand = random.randint(0, 4)
         # if not self.game.check_collision(self,self.game.all_player):
-
+        #
         #     if rand == 0 :
         #         self.rect.y -= self.velocity
         #
@@ -48,8 +48,8 @@ class Monster(pygame.sprite.Sprite):
 
 class Ghost_red(Monster):
 
-    def __init__(self,game):
-        super().__init__(game,'ghost_red',(230,230))
+    def __init__(self,game,xm,ym):
+        super().__init__(game,'ghost_red',(230,230),xm,ym)
         self.health = 50
         self.health_max = 50
         self.attack = 0.1
