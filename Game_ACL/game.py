@@ -77,14 +77,25 @@ class Game():
 
         # voir si on appui sur une touche
 
-        if self.pressed.get(pygame.K_RIGHT) :
+        if self.pressed.get(pygame.K_RIGHT) and self.player.rect.x + self.player.rect.width < self.screen_width:
             self.player.move_right()
-        elif self.pressed.get(pygame.K_LEFT) :
+            if self.check_collision(self.player, self.all_obstacles):
+                self.player.move_left()
+
+        elif self.pressed.get(pygame.K_LEFT) and self.player.rect.x > -5:
             self.player.move_left()
-        elif self.pressed.get(pygame.K_UP):
+            if self.check_collision(self.player, self.all_obstacles):
+                self.player.move_right()
+
+        elif self.pressed.get(pygame.K_UP) and self.player.rect.y > 0:
             self.player.move_up()
-        elif self.pressed.get(pygame.K_DOWN):
+            if self.check_collision(self.player, self.all_obstacles):
+                self.player.move_down()
+
+        elif self.pressed.get(pygame.K_DOWN) and self.player.rect.y + self.player.rect.height < self.screen_height - 5:
             self.player.move_down()
+            if self.check_collision(self.player, self.all_obstacles):
+                self.player.move_up()
 
     def game_over(self):
         self.player.health = self.player.health_max
