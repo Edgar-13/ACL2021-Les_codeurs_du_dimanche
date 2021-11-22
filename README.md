@@ -16,7 +16,7 @@ version java :
 How to run :
 
 
-version python :
+version python : (il faut une version de python 3.9)
 
 comment lancer le jeu depuis gitbash : 
 1/lancer gitbash depuis le dossier game_acl
