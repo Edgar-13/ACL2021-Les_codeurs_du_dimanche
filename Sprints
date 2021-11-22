@@ -28,8 +28,15 @@ Backlog sprint 1 :
 diagramme de séquence : https://online.visual-paradigm.com/community/share/diagramme-de-s-quence-sprint1-qqyzjz9uj
 diagramme de classe : https://online.visual-paradigm.com/community/share/diagramme-de-classe-sprint-1-qqze32c2e 
 
-Bilan : le personnage se déplace, il y a des obstacles (emplacements et nombre à définir) les obstacles ne sont pas franchissables, on peut ajouter des ennemis, le personnage et les ennemis ont de la vie.
-        Il manque ne chrono et une arrivé.
+Review : le personnage se déplace (1-)
+         il y a des obstacles (emplacements et nombre à définir) (2-)
+         les obstacles ne sont pas franchissables (3-)
+         Il y a des ennemis (6-)
+         le personnage et les ennemis ont de la vie. (5-)
+        Il manque ne chrono et une arrivé. (7- et 4-)
+        
+Retrospective : Au début du sprint, nous avons abandonné java pour passer sur python. Nous avons dû installer correctement PyCharm et commencer à maitriser pygame.
+Nous n'avons pas pu remplir tous nos objectifs par manque de temps et d'organisation dans notre travail.    
         
 Backlog sprint 2 :
            1- mettre une arrivé
