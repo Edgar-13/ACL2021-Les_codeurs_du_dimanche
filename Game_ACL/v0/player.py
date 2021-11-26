@@ -1,15 +1,17 @@
 import pygame
-
+import game
 
 
 class Player(pygame.sprite.Sprite):
 
     def __init__(self,game):
         super().__init__()
-        self.width = 100
-        self.height = 100
-        self.health = 100
-        self.health_max = 100
+        self.game = game
+        self.ratio = 10
+        self.width = self.game.screen_width/self.ratio
+        self.height = self.game.screen_height/self.ratio
+        self.health = 80
+        self.health_max = 80
         self.attack = 30
         self.velocity = 5
         self.image = pygame.image.load(f'assets/pacman.png')
@@ -19,16 +21,20 @@ class Player(pygame.sprite.Sprite):
         self.rect.y=50
         self.game=game
 
-    def move_right(self):
+    def reset_position(self):
+        self.rect.x = 0
+        self.rect.y = 0
+
+    def move_right(self, amount=0):
         self.rect.x += self.velocity
 
-    def move_left(self):
+    def move_left(self, amount=0):
         self.rect.x -= self.velocity
-        
-    def move_up(self):
-        self.rect.y-=self.velocity
 
-    def move_down(self):
+    def move_up(self, amount=0):
+        self.rect.y -= self.velocity
+
+    def move_down(self, amount=0):
         self.rect.y += self.velocity
 
     def update_health_bar(self,surface):

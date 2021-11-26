@@ -7,8 +7,9 @@ class Monster(pygame.sprite.Sprite):
     def __init__(self, game, name, size,xm,ym, offset=0):
         super().__init__()
         self.game = game
-        self.width = 100
-        self.height = 100
+        self.ratio = 17
+        self.width = self.game.screen_width / self.ratio
+        self.height = self.game.screen_height / self.ratio
         self.health = 100
         self.health_max = 100
         self.attack = 0.1
@@ -30,21 +31,21 @@ class Monster(pygame.sprite.Sprite):
     def move_alea(self):
 
         rand = random.randint(0, 4)
-        # if not self.game.check_collision(self,self.game.all_player):
-        #
-        #     if rand == 0 :
-        #         self.rect.y -= self.velocity
-        #
-        #     elif rand == 1 :
-        #         self.rect.y += self.velocity
-        #
-        #     elif rand == 2:
-        #         self.rect.x += self.velocity
-        #
-        #     elif rand == 3:
-        #         self.rect.x -= self.velocity
-        # else :
-        #     self.game.player.dammage(self.attack)
+        if not self.game.check_collision(self,self.game.all_player):
+
+            if rand == 0 :
+                self.rect.y -= self.velocity
+
+            elif rand == 1 :
+                self.rect.y += self.velocity
+
+            elif rand == 2:
+                self.rect.x += self.velocity
+
+            elif rand == 3:
+                self.rect.x -= self.velocity
+        else :
+            self.game.player.dammage(self.attack)
 
 class Ghost_red(Monster):
 
