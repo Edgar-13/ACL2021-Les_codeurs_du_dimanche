@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="collision check">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="test renomagge fichier assets en assets1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="Git.Settings">
     <excluded-from-favorite>
@@ -74,7 +77,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Game_ACL/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\babap_000\PycharmProjects\ACLprojet\Game_ACL\v0\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -226,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637579136272</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="test renomagge fichier assets en assets1">
+      <created>1637941160665</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1637941160665</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +259,7 @@
     <MESSAGE value="taille fenetre" />
     <MESSAGE value="test" />
     <MESSAGE value="collision check" />
-    <option name="LAST_COMMIT_MESSAGE" value="collision check" />
+    <MESSAGE value="test renomagge fichier assets en assets1" />
+    <option name="LAST_COMMIT_MESSAGE" value="test renomagge fichier assets en assets1" />
   </component>
 </project>
