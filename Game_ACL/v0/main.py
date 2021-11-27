@@ -21,6 +21,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 background1 = pygame.image.load('assets/background_1.bmp')
 background1 = pygame.transform.scale(background1, (screen_width, screen_height))
 
+
 game = Game(screen_width, screen_height)
 
 # End

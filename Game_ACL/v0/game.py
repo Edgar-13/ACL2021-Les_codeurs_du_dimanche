@@ -104,7 +104,7 @@ class Game():
             if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_up()
 
-        if self.check_collision(self.player, self.all_monsters) :
+        if self.check_collision(self.player, self.all_monsters) and self.niveau<=1 :
             self.player.reset_position()
             self.niveau += 1
 
