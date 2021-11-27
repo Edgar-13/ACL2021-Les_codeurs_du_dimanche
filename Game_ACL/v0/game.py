@@ -1,7 +1,6 @@
 import pygame
 from player import Player
 from monster import Ghost_red
-from monster import Monster
 from obstacles import Obstacles
 
 class Game():
@@ -75,7 +74,7 @@ class Game():
 
         #afficher score
 
-        score_text = self.font.render(f"Score : {self.score}",1,(0,0,0))
+        score_text = self.font.render(f"Score : {self.score}",True,(0,0,0))
         screen.blit(score_text,(20,20))
 
         # joueur
