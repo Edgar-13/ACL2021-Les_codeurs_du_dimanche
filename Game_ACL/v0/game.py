@@ -23,6 +23,7 @@ class Game():
 
         self.score = 0
 
+
         #monstres
         self.all_monsters = pygame.sprite.Group()
         self.spawn_monster(Ghost_red,100,500)
@@ -41,6 +42,12 @@ class Game():
 
         #list des obstacles par niveau
         self.ob = [[[self.screen_height / 20, self.screen_width/5, 200, 500],[self.screen_height / 20, self.screen_width/5, 500, 100]],[[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],[]]
+
+        #création spite arrivée
+        self.end = pygame.image.load("assets/end.bmp")
+        self.end = pygame.transform.scale(self.end, (self.screen_width / 10, self.screen_width / 10))
+        self.end_rect = self.end.get_rect()
+        self.end_rect.center = (self.screen_width - self.screen_width / 20, self.screen_height - 2 * self.screen_height / 38)
 
 
     def ajouter_obstacle(self,largeur,hauteur,x,y):
@@ -104,9 +111,10 @@ class Game():
             if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_up()
 
-        if self.check_collision(self.player, self.all_monsters) and self.niveau<=1 :
+        if self.player.rect.colliderect(self.end_rect) and self.niveau<=1 :
             self.player.reset_position()
             self.niveau += 1
+            self.score+=100
 
 
 

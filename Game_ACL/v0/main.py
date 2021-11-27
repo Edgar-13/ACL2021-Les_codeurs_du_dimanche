@@ -41,31 +41,46 @@ running = True
 while running:
 
 
-    #bg
-    background = pygame.image.load('assets/background_'+str(game.niveau)+'.bmp')
-    background = pygame.transform.scale(background, (screen_width, screen_height))
-    screen.blit(background, (0, 0))
-    #end
-    screen.blit(end, end_rect)
-    #verifié si jeu en cours
+
+
+
+    #verifié si jeu en cours et choisir le bg
     if game.is_playing:
+        background = pygame.image.load('assets/background_' + str(game.niveau) + '.bmp')
+        background = pygame.transform.scale(background, (screen_width, screen_height))
+        screen.blit(background, (0, 0))
+        # end
+        screen.blit(end, end_rect)
         game.update(screen)
+    else:
+        screen.blit(play_button, play_button_rect)
+
 
     # mettre a jour ecran
     pygame.display.flip()
 
-    #si on ferme
+    # Si le joueur ferme cette fenêtre
     for event in pygame.event.get():
-        game.start()
+
+        # Si c'est fermeture de fenêtre
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
-        #si joueur lache touche
+
+        # Si le joueur appuie sur une touche du clavier
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
 
+        # Si le joueur lâche une touche
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False
+
+        # Pointeur de souris
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # Boutton jouer
+            if play_button_rect.collidepoint(event.pos):
+                # Lancer le jeu
+                game.start()
 
     #fixer le nbr de fps
     clock.tick(FPS)
