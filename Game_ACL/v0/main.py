@@ -1,5 +1,5 @@
 import pygame
-import math
+
 from game import Game
 
 pygame.init()
@@ -11,11 +11,11 @@ FPS = 50000
 # Récupère la taille de notre écran 2
 screen_info = pygame.display.Info()
 relation = 3 / 4
-screen_width = relation * screen_info.current_h
-screen_height = relation * screen_info.current_h
+screen_width = relation*screen_info.current_h
+screen_height = relation*screen_info.current_h
 
-#affichage bla
-pygame.display.set_caption("jeu comette")
+#affichage
+
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 background1 = pygame.image.load('assets/background_1.bmp')

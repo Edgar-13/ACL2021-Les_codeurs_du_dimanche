@@ -6,42 +6,39 @@ from obstacles import Obstacles
 
 class Game():
     def __init__(self, screen_width, screen_height):
+        #taille écran
         self.screen_width = screen_height
         self.screen_height = screen_height
         #niveau actif
         self.niveau = 0
-        self.end_rect = [self.screen_width - self.screen_width / 20, self.screen_height - 2 * self.screen_height / 38]
-
-
+        # nombre de niveau - 1
+        self.nbr_niveau = 2
         #definir si le jeu est en cours
         self.is_playing = False
+
         #groupe de sprite joueur
         self.all_player = pygame.sprite.Group()
         self.player = Player(self)
         self.all_player.add(self.player)
         self.pressed = {}
-
         self.score = 0
 
-
-        #monstres
+        "monstres"
         self.all_monsters = pygame.sprite.Group()
-        self.spawn_monster(Ghost_red,100,500)
-        #obstacles
-        self.all_obstacles =pygame.sprite.Group()
-        self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
-        #ajout des murs autour
-        # mur de gauche
-        # self.ajouter_obstacle(self.screen_width, self.screen_height / 50, 0, 0)
-        # # mur de droite
-        # self.ajouter_obstacle(self.screen_width, self.screen_height / 50, self.screen_width - self.screen_height / 52, 0)
-        # # mur du haut
-        # self.ajouter_obstacle(self.screen_height / 50, self.screen_width, 0, 0)
-        # # mur du bas
-        # self.ajouter_obstacle(self.screen_height / 50, self.screen_width, 0, self.screen_height - self.screen_height / 52)
+        #liste des monstres par niveau
+        self.m = [[[Ghost_red,100,500],[Ghost_red,500,500]],
+                    [[Ghost_red,100,500],[Ghost_red,500,50]],
+                    [[Ghost_red,100,50],[Ghost_red,500,500]]]
 
-        #list des obstacles par niveau
-        self.ob = [[[self.screen_height / 20, self.screen_width/5, 200, 500],[self.screen_height / 20, self.screen_width/5, 500, 100]],[[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],[]]
+
+
+        "obstacles"
+        self.all_obstacles = pygame.sprite.Group()
+        #list des obstacles par niveau (1 nv par ligne)
+        self.ob = [[[self.screen_height / 20, self.screen_width/5, 200, 500],[self.screen_height / 20, self.screen_width/5, 500, 100]],
+                    [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
+                    [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]]]
+
 
         #création spite arrivée
         self.end = pygame.image.load("assets/end.bmp")
@@ -49,6 +46,8 @@ class Game():
         self.end_rect = self.end.get_rect()
         self.end_rect.center = (self.screen_width - self.screen_width / 20, self.screen_height - 2 * self.screen_height / 38)
 
+        #choix police pour score
+        self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
 
     def ajouter_obstacle(self,largeur,hauteur,x,y):
         obstacles = Obstacles(largeur,hauteur,x,y)
@@ -65,8 +64,13 @@ class Game():
 
     def update(self,screen):
         self.all_obstacles.empty()
+        self.all_monsters.empty()
         for obst in self.ob[self.niveau]:
             self.ajouter_obstacle(obst[0],obst[1],obst[2],obst[3])
+
+        for mst in self.m[self.niveau]:
+            self.spawn_monster(mst[0],mst[1],mst[2])
+
 
 
         #afficher score
@@ -120,6 +124,8 @@ class Game():
 
     def game_over(self):
         self.player.health = self.player.health_max
+        self.player.reset_position()
+        self.niveau = 0
         self.is_playing = False
         self.score = 0
 

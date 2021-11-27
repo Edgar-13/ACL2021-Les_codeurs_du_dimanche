@@ -53,6 +53,6 @@ class Ghost_red(Monster):
         super().__init__(game,'ghost_red',(230,230),xm,ym)
         self.health = 50
         self.health_max = 50
-        self.attack = 0.1
+        self.attack = 0.5
         self.set_speed(2)
         self.point=2
