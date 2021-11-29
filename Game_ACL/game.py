@@ -84,7 +84,10 @@ class Game():
         #monstres
         for monster in self.all_monsters:
             monster.update_health_bar(screen)
-            monster.move_alea()
+            if not self.player.rect.colliderect(monster):
+                monster.move_alea()
+            else :
+                self.player.dammage(monster.attack)
 
         # afficher les monstres
         self.all_monsters.draw(screen)

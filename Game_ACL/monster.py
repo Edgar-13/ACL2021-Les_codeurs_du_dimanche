@@ -31,21 +31,20 @@ class Monster(pygame.sprite.Sprite):
     def move_alea(self):
 
         rand = random.randint(0, 4)
-        if not self.game.check_collision(self,self.game.all_player):
 
-            if rand == 0 :
-                self.rect.y -= self.velocity
 
-            elif rand == 1 :
-                self.rect.y += self.velocity
+        if rand == 0 :
+            self.rect.y -= self.velocity
 
-            elif rand == 2:
-                self.rect.x += self.velocity
+        elif rand == 1 :
+            self.rect.y += self.velocity
 
-            elif rand == 3:
-                self.rect.x -= self.velocity
-        else :
-            self.game.player.dammage(self.attack)
+        elif rand == 2:
+            self.rect.x += self.velocity
+
+        elif rand == 3:
+            self.rect.x -= self.velocity
+
 
 class Ghost_red(Monster):
 
