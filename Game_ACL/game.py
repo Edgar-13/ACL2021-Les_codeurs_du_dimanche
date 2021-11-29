@@ -80,6 +80,9 @@ class Game():
         # joueur
         screen.blit(self.player.image, self.player.rect)
         self.player.update_health_bar(screen)
+        
+        # end
+        screen.blit(self.end, self.end_rect)
 
         #monstres
         for monster in self.all_monsters:
