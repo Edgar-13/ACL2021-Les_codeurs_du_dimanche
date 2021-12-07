@@ -24,11 +24,6 @@ background1 = pygame.transform.scale(background1, (screen_width, screen_height))
 
 game = Game(screen_width, screen_height)
 
-# End
-end = pygame.image.load("assets/end.bmp")
-end = pygame.transform.scale(end, (screen_width / 10, screen_width / 10))
-end_rect = end.get_rect()
-end_rect.center = (screen_width - screen_width / 20, screen_height - 2 * screen_height / 40)
 
 # Bouton Jouer
 play_button = pygame.image.load("assets/button.png")
@@ -49,8 +44,6 @@ while running:
         background = pygame.image.load('assets/background_' + str(game.niveau) + '.bmp')
         background = pygame.transform.scale(background, (screen_width, screen_height))
         screen.blit(background, (0, 0))
-        # end
-        screen.blit(end, end_rect)
         game.update(screen)
     else:
         screen.blit(play_button, play_button_rect)
