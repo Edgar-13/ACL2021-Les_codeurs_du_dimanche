@@ -48,6 +48,11 @@ class Game():
         #choix police pour score
         self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
 
+        #timer
+        self.start_timer = 30000
+        self.secondes = self.start_timer
+
+
     def ajouter_obstacle(self,largeur,hauteur,x,y):
         obstacles = Obstacles(largeur,hauteur,x,y)
         self.all_obstacles.add(obstacles)
@@ -62,6 +67,7 @@ class Game():
 
 
     def update(self,screen):
+        #on vides les groupes de sprites puis on les affiches : pb car on les creers en boucles et supr en boucle
         self.all_obstacles.empty()
         self.all_monsters.empty()
         for obst in self.ob[self.niveau]:
@@ -70,8 +76,14 @@ class Game():
         for mst in self.m[self.niveau]:
             self.spawn_monster(mst[0],mst[1],mst[2])
 
+        #gerer temps
 
-
+        self.secondes =(self.secondes - 35)
+        secondes = int(self.secondes/1000)
+        if self.secondes == 0 :
+            self.game_over()
+        time_text = self.font.render(f"Temps : {secondes}", True, (0, 0, 0))
+        screen.blit(time_text, (520, 20))
         #afficher score
 
         score_text = self.font.render(f"Score : {self.score}",True,(0,0,0))
@@ -124,6 +136,8 @@ class Game():
             self.player.reset_position()
             self.niveau += 1
             self.score+=100
+        elif self.player.rect.colliderect(self.end_rect) and self.niveau==self.nbr_niveau:
+            self.game_over()
 
 
 
@@ -133,8 +147,14 @@ class Game():
         self.niveau = 0
         self.is_playing = False
         self.score = 0
+        self.secondes = self.start_timer
 
-
+    def end(self): # a mieux def
+        self.player.health = self.player.health_max
+        self.player.reset_position()
+        self.niveau = 0
+        self.is_playing = False
+        self.score = 0
 
 
     def check_collision(self,sprite,group):
