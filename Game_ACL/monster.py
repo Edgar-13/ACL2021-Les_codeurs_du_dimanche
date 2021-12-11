@@ -19,6 +19,10 @@ class Monster(pygame.sprite.Sprite):
         self.rect.x = xm
         self.rect.y = ym
 
+    def damage(self,amount):
+        #infliger des dégats avec projectile
+        self.health -= amount
+
 
     def set_speed(self,speed):
         self.default_speed = speed

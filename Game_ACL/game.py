@@ -94,11 +94,22 @@ class Game():
         self.player.update_health_bar(screen)
 
         #recuperer les projectiles de joueur
-        for projectile in self.player.all_projectiles:
-            projectile.move()
+        for projectile in self.player.all_projectiles_up:
+            projectile.move_up()
+        for projectile in self.player.all_projectiles_down:
+            projectile.move_down()
+        for projectile in self.player.all_projectiles_left:
+            projectile.move_left()
+        for projectile in self.player.all_projectiles_right:
+            projectile.move_right()
+
 
         #appliquer l'ensemble des images de mon groupe de projectile
-        self.player.all_projectiles.draw(screen)
+        self.player.all_projectiles_right.draw(screen)
+        self.player.all_projectiles_left.draw(screen)
+        self.player.all_projectiles_up.draw(screen)
+        self.player.all_projectiles_down.draw(screen)
+
 
         # end
         screen.blit(self.end, self.end_rect)
@@ -114,10 +125,10 @@ class Game():
         # afficher les monstres
         self.all_monsters.draw(screen)
 
-        # afficher les monstres
+        # afficher les obstacles
         self.all_obstacles.draw(screen)
 
-        # voir si on appui sur une touche
+        # voir si on reste appuier sur une touche
 
         if self.pressed.get(pygame.K_RIGHT) and self.player.rect.x + self.player.rect.width < self.screen_width:
             self.player.move_right()

@@ -1,5 +1,7 @@
 import pygame
 import game
+from obstacles import Obstacles
+
 
 # définir la classe qui va gérer le  projectile de notre joueur
 class Projectile(pygame.sprite.Sprite):
@@ -17,18 +19,46 @@ class Projectile(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (self.width,self.height))
         self.rect = self.image.get_rect()
         self.rect.x = player.rect.x + player.width/2 - self.width/2
-        self.rect.y = player.rect.y + player.height/2 - self.width/2
+        self.rect.y = player.rect.y + player.height/2 - self.height/2
 
 
     def remove(self):
-        self.player.all_projectiles.remove(self)
+        self.player.all_projectiles_up.remove(self)
+        self.player.all_projectiles_down.remove(self)
+        self.player.all_projectiles_left.remove(self)
+        self.player.all_projectiles_right.remove(self)
 
-    def move(self):
+
+    #Pour les questre directions, on vérifie que le projectile n'est plus present sur l'ecran, puis on le supprime
+    def move_up(self):
+        self.rect.y -= self.velocity
+        if self.rect.y <0 :
+            self.remove()
+        elif self.player.game.check_collision(self, self.player.game.all_obstacles) or self.player.game.check_collision(self,self.player.game.all_monsters):
+            self.remove()
+            #dégat monstre
+ #       for monster in self.player.game.check_collision(self, self.player.game.all_monsters):
+ #           #infliger dégâts au monstre
+ #           monster.damage(self.player.attack)
+ #           self.remove()
+    def move_down(self):
+        self.rect.y += self.velocity
+        if self.rect.y > self.game.screen_height :
+            self.remove()
+        elif self.player.game.check_collision(self, self.player.game.all_obstacles) or self.player.game.check_collision(self,self.player.game.all_monsters):
+            self.remove()
+
+    def move_left(self):
+        self.rect.x -= self.velocity
+        if self.rect.x < 0 :
+            self.remove()
+        elif self.player.game.check_collision(self, self.player.game.all_obstacles) or self.player.game.check_collision(self,self.player.game.all_monsters):
+            self.remove()
+    def move_right(self):
         self.rect.x += self.velocity
-
-        #verifier si notre projectile n'est plus present sur l'ecran
         if self.rect.x > self.game.screen_width :
-            #on le supprime
+            self.remove()
+        elif self.player.game.check_collision(self, self.player.game.all_obstacles) or self.player.game.check_collision(self,self.player.game.all_monsters):
             self.remove()
 
 
