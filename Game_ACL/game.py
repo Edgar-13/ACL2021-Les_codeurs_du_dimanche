@@ -1,4 +1,6 @@
 import pygame
+
+import player
 from player import Player
 from monster import Ghost_red
 from obstacles import Obstacles
@@ -94,21 +96,19 @@ class Game():
         self.player.update_health_bar(screen)
 
         #recuperer les projectiles de joueur
-        for projectile in self.player.all_projectiles_up:
-            projectile.move_up()
-        for projectile in self.player.all_projectiles_down:
-            projectile.move_down()
-        for projectile in self.player.all_projectiles_left:
-            projectile.move_left()
-        for projectile in self.player.all_projectiles_right:
-            projectile.move_right()
+        for projectile in self.player.all_projectiles:
+            if projectile.direction == 'up':
+                projectile.move_up()
+            if projectile.direction == 'down':
+                projectile.move_down()
+            if projectile.direction == 'right':
+                projectile.move_right()
+            if projectile.direction == 'left':
+                projectile.move_left()
 
 
         #appliquer l'ensemble des images de mon groupe de projectile
-        self.player.all_projectiles_right.draw(screen)
-        self.player.all_projectiles_left.draw(screen)
-        self.player.all_projectiles_up.draw(screen)
-        self.player.all_projectiles_down.draw(screen)
+        self.player.all_projectiles.draw(screen)
 
 
         # end

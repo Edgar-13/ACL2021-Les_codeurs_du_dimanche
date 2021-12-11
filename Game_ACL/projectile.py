@@ -7,7 +7,7 @@ from obstacles import Obstacles
 class Projectile(pygame.sprite.Sprite):
 
     #définir le constructeur de cette classe
-    def __init__(self,player,game):
+    def __init__(self,player,game,direction):
         super().__init__()
         self.velocity = 8
         self.ratio = 15
@@ -20,13 +20,11 @@ class Projectile(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = player.rect.x + player.width/2 - self.width/2
         self.rect.y = player.rect.y + player.height/2 - self.height/2
+        self.direction = direction
 
 
     def remove(self):
-        self.player.all_projectiles_up.remove(self)
-        self.player.all_projectiles_down.remove(self)
-        self.player.all_projectiles_left.remove(self)
-        self.player.all_projectiles_right.remove(self)
+        self.player.all_projectiles.remove(self)
 
 
     #Pour les questre directions, on vérifie que le projectile n'est plus present sur l'ecran, puis on le supprime
@@ -60,7 +58,3 @@ class Projectile(pygame.sprite.Sprite):
             self.remove()
         elif self.player.game.check_collision(self, self.player.game.all_obstacles) or self.player.game.check_collision(self,self.player.game.all_monsters):
             self.remove()
-
-
-
-

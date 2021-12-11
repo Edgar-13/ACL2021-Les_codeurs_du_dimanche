@@ -14,10 +14,7 @@ class Player(pygame.sprite.Sprite):
         self.health_max = 80
         self.attack = 30
         self.velocity = 5
-        self.all_projectiles_up = pygame.sprite.Group()
-        self.all_projectiles_down = pygame.sprite.Group()
-        self.all_projectiles_right = pygame.sprite.Group()
-        self.all_projectiles_left = pygame.sprite.Group()
+        self.all_projectiles = pygame.sprite.Group()
         self.image = pygame.image.load(f'assets/pacman.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
@@ -25,25 +22,21 @@ class Player(pygame.sprite.Sprite):
         self.rect.y=50
         self.game=game
 
-    def launch_projectile_up(self):
-        # creer une nouvelle instance de la classe Projectile
-        projectile = Projectile(self,self.game)
-        self.all_projectiles_up.add(projectile)
 
-    def launch_projectile_down(self):
+    def launch_projectile(self, direction):
         # creer une nouvelle instance de la classe Projectile
-        projectile = Projectile(self,self.game)
-        self.all_projectiles_down.add(projectile)
-
-    def launch_projectile_left(self):
-        # creer une nouvelle instance de la classe Projectile
-        projectile = Projectile(self,self.game)
-        self.all_projectiles_left.add(projectile)
-
-    def launch_projectile_right(self):
-        # creer une nouvelle instance de la classe Projectile
-        projectile = Projectile(self,self.game)
-        self.all_projectiles_right.add(projectile)
+        if direction == 'up':
+            projectile = Projectile(self, self.game, direction)
+            self.all_projectiles.add(projectile)
+        if direction == 'down':
+            projectile = Projectile(self, self.game, direction)
+            self.all_projectiles.add(projectile)
+        if direction == 'left':
+            projectile = Projectile(self, self.game, direction)
+            self.all_projectiles.add(projectile)
+        if direction == 'right':
+            projectile = Projectile(self, self.game, direction)
+            self.all_projectiles.add(projectile)
 
 
     def reset_position(self):
