@@ -46,6 +46,13 @@ class Monster(pygame.sprite.Sprite):
             self.rect.x -= self.velocity
 
 
+    def move_easy(self):
+        #if not self.game.check_collision(self,self.game.all_player):
+        self.rect.y += self.velocity*10
+        #else :
+        #    self.game.player.damage(self.attack)
+
+
 class Ghost_red(Monster):
 
     def __init__(self,game,xm,ym):

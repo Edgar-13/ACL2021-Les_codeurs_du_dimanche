@@ -1,6 +1,6 @@
 import pygame
 import game
-
+from projectile import Projectile
 
 class Player(pygame.sprite.Sprite):
 
@@ -13,13 +13,20 @@ class Player(pygame.sprite.Sprite):
         self.health = 80
         self.health_max = 80
         self.attack = 30
-        self.velocity = 10
+        self.velocity = 5
+        self.all_projectiles = pygame.sprite.Group()
         self.image = pygame.image.load(f'assets/pacman.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
         self.rect.x=50
         self.rect.y=50
         self.game=game
+
+    def launch_projectile(self):
+        # creer une noubelle instance de la classe Projectile
+        projectile = Projectile(self,self.game)
+        self.all_projectiles.add(projectile)
+
 
     def reset_position(self):
         self.rect.x = 0

@@ -92,7 +92,14 @@ class Game():
         # joueur
         screen.blit(self.player.image, self.player.rect)
         self.player.update_health_bar(screen)
-        
+
+        #recuperer les projectiles de joueur
+        for projectile in self.player.all_projectiles:
+            projectile.move()
+
+        #appliquer l'ensemble des images de mon groupe de projectile
+        self.player.all_projectiles.draw(screen)
+
         # end
         screen.blit(self.end, self.end_rect)
 
