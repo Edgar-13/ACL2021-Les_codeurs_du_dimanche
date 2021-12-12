@@ -82,10 +82,10 @@ class Game():
 
         self.secondes =(self.secondes - 35)
         secondes = int(self.secondes/1000)
-        if self.secondes == 0 :
+        if self.secondes < 0.0:
             self.game_over()
         time_text = self.font.render(f"Temps : {secondes}", True, (0, 0, 0))
-        screen.blit(time_text, (520, 20))
+        screen.blit(time_text, (220, 20))
         #afficher score
 
         score_text = self.font.render(f"Score : {self.score}",True,(0,0,0))
@@ -160,10 +160,10 @@ class Game():
 
 
     def game_over(self):
+        self.is_playing = False
         self.player.health = self.player.health_max
         self.player.reset_position()
         self.niveau = 0
-        self.is_playing = False
         self.score = 0
         self.secondes = self.start_timer
 
