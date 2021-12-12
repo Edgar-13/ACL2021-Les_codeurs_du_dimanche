@@ -50,6 +50,15 @@ Backlog sprint 2 :
 
 diagramme de séquence et de classe v2 dans le répertoire
 
-
+Review : Il y a une arrivée et plusieurs niveaux (1- et 2-)
+         Il y a un chrono qui fait game over lorsqu'il atteint 0 (3-)
+         On peut tirer des projectiles, mais ils ne font pas encore de dégâts aux monstres (4-)
+         Les monstres bougent simplement et se bloquent au contact du joueur (5-)
+         Le deuxième type de monstre n'a pas été créé (6-)
+         
+Retrospective : La création d'une arrivée et de plusieurs niveaux a donné lieu à des problèmes tel que une baisse de fps. De plus, ça nous a compliqué la tâche
+lorsque nous avons voulu faire bouger les monstres. Il nous faut régler le problème des dégâts au contact des monstres, ainsi que les dégâts lorsqu'on tire des
+projectiles. 
+De plus, le mouvement des monstres est le même dans tous les niveaux, il faudrait que leur mouvement change lors du changement de niveau.
 
 
