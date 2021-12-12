@@ -27,9 +27,12 @@ class Game():
         "monstres"
         self.all_monsters = pygame.sprite.Group()
         #liste des monstres par niveau
-        self.m = [[[Ghost_red,100,500],[Ghost_red,500,500]],
+        self.m = [[[Ghost_red,100,300],[Ghost_red,250,400]],
                     [[Ghost_red,100,500],[Ghost_red,500,50]],
                     [[Ghost_red,100,50],[Ghost_red,500,500]]]
+
+        for mst in self.m[0]:
+            self.spawn_monster(mst[0],mst[1],mst[2])
 
 
 
@@ -51,7 +54,7 @@ class Game():
         self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
 
         #timer
-        self.start_timer = 30000
+        self.start_timer = 300000
         self.secondes = self.start_timer
 
 
@@ -71,16 +74,16 @@ class Game():
     def update(self,screen):
         #on vides les groupes de sprites puis on les affiches : pb car on les creers en boucles et supr en boucle
         self.all_obstacles.empty()
-        self.all_monsters.empty()
+        #self.all_monsters.empty()
         for obst in self.ob[self.niveau]:
             self.ajouter_obstacle(obst[0],obst[1],obst[2],obst[3])
 
-        for mst in self.m[self.niveau]:
-            self.spawn_monster(mst[0],mst[1],mst[2])
+        #for mst in self.m[self.niveau]:
+        #    self.spawn_monster(mst[0],mst[1],mst[2])
 
         #gerer temps
 
-        self.secondes =(self.secondes - 35)
+        self.secondes =(self.secondes - 50)
         secondes = int(self.secondes/1000)
         if self.secondes < 0.0:
             self.game_over()
@@ -117,8 +120,24 @@ class Game():
         #monstres
         for monster in self.all_monsters:
             monster.update_health_bar(screen)
-            if not self.player.rect.colliderect(monster):
-                monster.move_alea()
+            n = self.secondes%30000
+            # print(self.m[0][0])
+            # Coord=[]
+            # for i in self.m[0]:
+            #     Coord.append(i[1])
+            # if self.m[0][0][1]==500:
+            #     if n>=15000:
+            #         monster.move_up()
+            #     elif n<15000:
+            #         monster.move_down()
+            # elif self.m[0][0][1]==100:
+            if n<15000:
+                monster.move_up()
+            elif n>=15000:
+                monster.move_down()
+
+            #if not self.player.rect.colliderect(monster):
+                #monster.move_alea()
             else :
                 self.player.dammage(monster.attack)
 

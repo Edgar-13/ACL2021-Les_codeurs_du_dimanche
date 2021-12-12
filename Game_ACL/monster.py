@@ -1,5 +1,6 @@
 import pygame
 import random
+import game
 
 
 class Monster(pygame.sprite.Sprite):
@@ -31,6 +32,7 @@ class Monster(pygame.sprite.Sprite):
     def update_health_bar(self,surface):
         pygame.draw.rect(surface,(60,60,60),[self.rect.x + 15, self.rect.y - 20, self.health_max, 5])
         pygame.draw.rect(surface,(111,210,46),[self.rect.x+15,self.rect.y-20,self.health,5])
+
 
     def move_alea(self):
 
@@ -66,3 +68,11 @@ class Ghost_red(Monster):
         self.attack = 0.5
         self.set_speed(2)
         self.point=2
+
+    def move_up(self):
+        if not self.game.check_collision(self, self.game.all_player):
+            self.rect.x -= 1
+
+    def move_down(self):
+        if not self.game.check_collision(self, self.game.all_player):
+            self.rect.x += 1
