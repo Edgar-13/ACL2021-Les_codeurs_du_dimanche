@@ -33,6 +33,8 @@ class Monster(pygame.sprite.Sprite):
         pygame.draw.rect(surface,(60,60,60),[self.rect.x + 15, self.rect.y - 20, self.health_max, 5])
         pygame.draw.rect(surface,(111,210,46),[self.rect.x+15,self.rect.y-20,self.health,5])
 
+    def remove(self):
+        self.game.all_monsters.remove(self)
 
     def move_alea(self):
 
@@ -69,10 +71,30 @@ class Ghost_red(Monster):
         self.set_speed(2)
         self.point=2
 
+    def move_left(self):
+        if not self.game.check_collision(self, self.game.all_player):
+            self.rect.x -= self.velocity
+        else :
+            #infliger des dégâts
+            self.game.player.damage(self.attack)
+
+    def move_right(self):
+        if not self.game.check_collision(self, self.game.all_player):
+            self.rect.x += self.velocity
+        else :
+            #infliger des dégâts
+            self.game.player.damage(self.attack)
+
     def move_up(self):
         if not self.game.check_collision(self, self.game.all_player):
-            self.rect.x -= 1
+            self.rect.y -= self.velocity
+        else :
+            #infliger des dégâts
+            self.game.player.damage(self.attack)
 
     def move_down(self):
         if not self.game.check_collision(self, self.game.all_player):
-            self.rect.x += 1
+            self.rect.y += self.velocity
+        else :
+            #infliger des dégâts
+            self.game.player.damage(self.attack)

@@ -12,7 +12,7 @@ class Player(pygame.sprite.Sprite):
         self.height = self.game.screen_height/self.ratio
         self.health = 80
         self.health_max = 80
-        self.attack = 30
+        self.attack = 10
         self.velocity = 5
         self.all_projectiles = pygame.sprite.Group()
         self.image = pygame.image.load(f'assets/pacman.png')
@@ -59,7 +59,7 @@ class Player(pygame.sprite.Sprite):
         pygame.draw.rect(surface,(60,60,60),[self.rect.x+5, self.rect.y, self.health_max,5])
         pygame.draw.rect(surface,(111,210,46),[self.rect.x+5,self.rect.y,self.health,5])
 
-    def dammage(self,amount):
+    def damage(self,amount):
 
         if self.health-amount>amount:
             self.health -= amount

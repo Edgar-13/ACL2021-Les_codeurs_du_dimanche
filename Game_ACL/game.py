@@ -120,7 +120,7 @@ class Game():
         #monstres
         for monster in self.all_monsters:
             monster.update_health_bar(screen)
-            n = self.secondes%30000
+            n = self.secondes%60000
             # print(self.m[0][0])
             # Coord=[]
             # for i in self.m[0]:
@@ -133,13 +133,16 @@ class Game():
             # elif self.m[0][0][1]==100:
             if n<15000:
                 monster.move_up()
-            elif n>=15000:
+            elif n>=15000 and n<30000:
+                monster.move_left()
+            elif n>=30000 and n<45000:
                 monster.move_down()
-
+            elif n>45000:
+                monster.move_right()
             #if not self.player.rect.colliderect(monster):
                 #monster.move_alea()
             else :
-                self.player.dammage(monster.attack)
+                self.player.damage(monster.attack)
 
         # afficher les monstres
         self.all_monsters.draw(screen)
