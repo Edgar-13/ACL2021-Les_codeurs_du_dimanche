@@ -1,13 +1,18 @@
+import random
+
 import pygame
 
 import player
 from player import Player
-from monster import Ghost_red
+from monster import Ghost_red,Ghost_blue
 from obstacles import Obstacles
+from projectileMonster import Projectile_monster
+from projectile import Projectile
+import monster
 
 class Game():
     def __init__(self, screen_width, screen_height):
-        #taille écran
+       #taille écran
         self.screen_width = screen_height
         self.screen_height = screen_height
         #niveau actif
@@ -27,13 +32,9 @@ class Game():
         "monstres"
         self.all_monsters = pygame.sprite.Group()
         #liste des monstres par niveau
-        self.m = [[[Ghost_red,100,300],[Ghost_red,250,400]],
-                    [[Ghost_red,100,500],[Ghost_red,500,50]],
+        self.m = [[[Ghost_red,400,300],[Ghost_blue,350,400]],
+                    [[Ghost_red, 100,500],[Ghost_blue,500,50]],
                     [[Ghost_red,100,50],[Ghost_red,500,500]]]
-
-        for mst in self.m[0]:
-            self.spawn_monster(mst[0],mst[1],mst[2])
-
 
 
         "obstacles"
@@ -54,8 +55,12 @@ class Game():
         self.font = pygame.font.Font("assets/SyneMono-Regular.ttf", 35)
 
         #timer
-        self.start_timer = 300000
+        self.start_timer = 3000000
         self.secondes = self.start_timer
+
+        self.reset=True
+        self.var=300
+        self.condition=True
 
 
     def ajouter_obstacle(self,largeur,hauteur,x,y):
@@ -64,6 +69,8 @@ class Game():
 
     def spawn_monster(self,name,xm,ym):
         self.all_monsters.add(name.__call__(self,xm,ym))
+        # self.monster=Ghost_red(self)
+        # self.all_monsters.add(monster)
 
     def start (self):
         self.is_playing = True
@@ -73,24 +80,24 @@ class Game():
 
     def update(self,screen):
         #on vides les groupes de sprites puis on les affiches : pb car on les creers en boucles et supr en boucle
-        self.all_obstacles.empty()
-        #self.all_monsters.empty()
-        for obst in self.ob[self.niveau]:
-            self.ajouter_obstacle(obst[0],obst[1],obst[2],obst[3])
+        if self.reset:
+            self.all_obstacles.empty()
+            self.all_monsters.empty()
+            for obst in self.ob[self.niveau]:
+                self.ajouter_obstacle(obst[0],obst[1],obst[2],obst[3])
+            for mst in self.m[self.niveau]:
+                self.spawn_monster(mst[0],mst[1],mst[2])
+            self.reset=False
 
-        #for mst in self.m[self.niveau]:
-        #    self.spawn_monster(mst[0],mst[1],mst[2])
-
-        #gerer temps
-
+        # gerer temps
         self.secondes =(self.secondes - 50)
         secondes = int(self.secondes/1000)
         if self.secondes < 0.0:
             self.game_over()
         time_text = self.font.render(f"Temps : {secondes}", True, (0, 0, 0))
         screen.blit(time_text, (220, 20))
-        #afficher score
 
+        # afficher score
         score_text = self.font.render(f"Score : {self.score}",True,(0,0,0))
         screen.blit(score_text,(20,20))
 
@@ -98,7 +105,7 @@ class Game():
         screen.blit(self.player.image, self.player.rect)
         self.player.update_health_bar(screen)
 
-        #recuperer les projectiles de joueur
+        # recuperer les projectiles de joueur
         for projectile in self.player.all_projectiles:
             if projectile.direction == 'up':
                 projectile.move_up()
@@ -109,43 +116,64 @@ class Game():
             if projectile.direction == 'left':
                 projectile.move_left()
 
-
         #appliquer l'ensemble des images de mon groupe de projectile
         self.player.all_projectiles.draw(screen)
 
+        # afficher les monstres
+        self.all_monsters.draw(screen)
 
         # end
         screen.blit(self.end, self.end_rect)
 
         #monstres
+        #Je test des déplacements
+        change=True
         for monster in self.all_monsters:
             monster.update_health_bar(screen)
-            n = self.secondes%60000
-            # print(self.m[0][0])
-            # Coord=[]
-            # for i in self.m[0]:
-            #     Coord.append(i[1])
-            # if self.m[0][0][1]==500:
-            #     if n>=15000:
-            #         monster.move_up()
-            #     elif n<15000:
+            monster.all_projectiles_monster.draw(screen)
+            # if change:
+            #     if self.condition:
+            #         monster.move_right()
+            #         if monster.rect.x>=self.var+300:
+            #             # self.var=-self.var
+            #             self.condition = False
+            #     else:
+            #         monster.move_left()
+            #         if monster.rect.x<= 400-self.var:
+            #             self.condition=True
+                # change=False
+            # if not change :
+            #     if self.condition:
             #         monster.move_down()
-            # elif self.m[0][0][1]==100:
-            if n<15000:
-                monster.move_up()
-            elif n>=15000 and n<30000:
-                monster.move_left()
-            elif n>=30000 and n<45000:
-                monster.move_down()
-            elif n>45000:
-                monster.move_right()
-            #if not self.player.rect.colliderect(monster):
+            #         if monster.rect.y>=self.var+300:
+            #             # self.var=-self.var
+            #             self.condition = False
+            #     else:
+            #         monster.move_up()
+            #         if monster.rect.x<= 400-self.var:
+            #             self.condition=True
+            #     change=True
+            if not self.player.rect.colliderect(monster):
                 #monster.move_alea()
-            else :
+                monster.move_easy(monster.name)
+                r=random.randint(1,400)
+                if r==5:
+                    monster.shot(monster.name)
+                for projectile in monster.all_projectiles_monster:
+                     if projectile.direction=='down':
+                        projectile.move_down()
+                     if projectile.direction=='up':
+                        projectile.move_up()
+                     if projectile.direction=='right':
+                        projectile.move_right()
+                     if projectile.direction=='left':
+                        projectile.move_left()
+
+            else:
                 self.player.damage(monster.attack)
 
-        # afficher les monstres
-        self.all_monsters.draw(screen)
+        # appliquer l'ensemble des images de mon groupe de projectile
+        self.player.all_projectiles.draw(screen)
 
         # afficher les obstacles
         self.all_obstacles.draw(screen)
@@ -176,6 +204,7 @@ class Game():
             self.player.reset_position()
             self.niveau += 1
             self.score+=100
+            self.reset = True
         elif self.player.rect.colliderect(self.end_rect) and self.niveau==self.nbr_niveau:
             self.game_over()
 
@@ -188,6 +217,7 @@ class Game():
         self.niveau = 0
         self.score = 0
         self.secondes = self.start_timer
+        self.reset=True
 
     def end(self): # a mieux def
         self.player.health = self.player.health_max
@@ -195,6 +225,7 @@ class Game():
         self.niveau = 0
         self.is_playing = False
         self.score = 0
+        self.reset=True
 
 
     def check_collision(self,sprite,group):
