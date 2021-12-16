@@ -34,7 +34,7 @@ class Game():
         #liste des monstres par niveau
         self.m = [[[Ghost_red,400,300],[Ghost_blue,350,400]],
                     [[Ghost_red, 100,500],[Ghost_blue,500,50]],
-                    [[Ghost_red,100,50],[Ghost_red,500,500]]]
+                    [[Ghost_blue,100,300],[Ghost_red,500,500]]]
 
 
         "obstacles"
@@ -157,17 +157,17 @@ class Game():
                 #monster.move_alea()
                 monster.move_easy(monster.name)
                 r=random.randint(1,400)
-                if r==5:
+                if r<=2:
                     monster.shot(monster.name)
                 for projectile in monster.all_projectiles_monster:
                      if projectile.direction=='down':
-                        projectile.move_down()
-                     if projectile.direction=='up':
-                        projectile.move_up()
-                     if projectile.direction=='right':
-                        projectile.move_right()
-                     if projectile.direction=='left':
                         projectile.move_left()
+                     if projectile.direction=='up':
+                        projectile.move_right()
+                     if projectile.direction=='right':
+                        projectile.move_left()
+                     if projectile.direction=='left':
+                        projectile.move_right()
 
             else:
                 self.player.damage(monster.attack)
@@ -230,4 +230,3 @@ class Game():
 
     def check_collision(self,sprite,group):
         return pygame.sprite.spritecollide(sprite,group,False,pygame.sprite.collide_mask)
-

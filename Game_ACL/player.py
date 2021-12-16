@@ -15,12 +15,16 @@ class Player(pygame.sprite.Sprite):
         self.attack = 10
         self.velocity = 5
         self.all_projectiles = pygame.sprite.Group()
-        self.image = pygame.image.load(f'assets/pacman.png')
+        self.image = pygame.image.load(f'assets/pacman_right.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
         self.rect.x=50
         self.rect.y=50
         self.game=game
+
+    def change_image(self,direction):
+        self.image = pygame.image.load(f'assets/pacman_'+direction+'.png')
+        self.image = pygame.transform.scale(self.image, (self.width, self.height))
 
 
     def launch_projectile(self, direction):
@@ -61,7 +65,7 @@ class Player(pygame.sprite.Sprite):
 
     def damage(self,amount):
 
-        if self.health-amount>amount:
+        if self.health-amount>0:
             self.health -= amount
         else:
             self.game.game_over()

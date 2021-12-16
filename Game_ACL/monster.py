@@ -18,6 +18,7 @@ class Monster(pygame.sprite.Sprite):
         self.health = 100
         self.health_max = 100
         self.attack = 0.01
+        self.attack_distance = 20
         self.all_projectiles_monster = pygame.sprite.Group()
         # self.image = pygame.image.load(f'assets/'+name+'.png')
         # self.image = pygame.transform.scale(self.image, (self.width, self.height))
@@ -64,13 +65,11 @@ class Monster(pygame.sprite.Sprite):
                 self.game.player.damage(self.attack)
 
     def move_easy(self,name):
-        #if not self.game.check_collision(self,self.game.all_player):
         #haut en bas si bleu, gauche à droite si rouge
         if name == Ghost_red:
             if self.condition_red:
                 self.move_right()
                 if self.rect.x>=self.var+300:
-                    # self.var=-self.var
                     self.condition_red = False
             else:
                 self.move_left()
@@ -80,15 +79,12 @@ class Monster(pygame.sprite.Sprite):
             if self.condition_blue:
                 self.move_up()
                 if self.rect.y <= self.var - 300:
-                    # self.var=-self.var
                     self.condition_blue = False
             else:
                 self.move_down()
                 if self.rect.y > 400 + self.var:
                     self.condition_blue = True
-        # self.rect.y += self.velocity*10
-        #else :
-        #    self.game.player.damage(self.attack)
+
 
     def move_left(self):
         if not self.game.check_collision(self, self.game.all_player):
@@ -164,8 +160,8 @@ class Ghost_blue(Monster):
         super().__init__(game,'Ghost_blue',(230,230),xm,ym)
         self.health=50
         self.health_max=50
-        self.attack=0.1
-        self.set_speed(2)
+        self.attack_distance=20
+        self.set_speed(1)
         self.point=2
         self.name=Ghost_blue
         self.image = pygame.image.load(f'assets/Ghost_blue.png')
