@@ -6,7 +6,7 @@ pygame.init()
 
 #def horloge 2
 clock = pygame.time.Clock()
-FPS = 50000
+FPS = 60
 
 # Récupère la taille de notre écran 2
 screen_info = pygame.display.Info()

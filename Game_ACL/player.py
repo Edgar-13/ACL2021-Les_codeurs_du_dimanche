@@ -7,19 +7,19 @@ class Player(pygame.sprite.Sprite):
     def __init__(self,game):
         super().__init__()
         self.game = game
-        self.ratio = 10
+        self.ratio = 15
         self.width = self.game.screen_width/self.ratio
         self.height = self.game.screen_height/self.ratio
         self.health = 80
         self.health_max = 80
-        self.attack = 10
-        self.velocity = 5
+        self.attack = 5
+        self.velocity = 8
         self.all_projectiles = pygame.sprite.Group()
         self.image = pygame.image.load(f'assets/pacman_right.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
-        self.rect.x=50
-        self.rect.y=50
+        self.rect.x=40
+        self.rect.y=40
         self.game=game
 
     def change_image(self,direction):

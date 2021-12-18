@@ -10,8 +10,8 @@ class Projectile_monster(pygame.sprite.Sprite):
         self.game = game
         self.monster=monster
         self.direction = direction
-        self.velocity = 2.5
-        self.ratio = 15
+        self.velocity = 9
+        self.ratio = 17
         self.width = self.game.screen_width / self.ratio
         self.height = self.game.screen_height / self.ratio
         self.image = pygame.image.load(f'assets/projectile.png')
@@ -34,7 +34,7 @@ class Projectile_monster(pygame.sprite.Sprite):
 
     def move_down(self):
         self.rect.y += self.velocity
-        if self.rect.y > self.game.screen_height :
+        if self.rect.y > self.game.screen_height-10 :
             self.remove()
         self.collision()
 
@@ -46,7 +46,7 @@ class Projectile_monster(pygame.sprite.Sprite):
 
     def move_right(self):
         self.rect.x += self.velocity
-        if self.rect.x > self.game.screen_width :
+        if self.rect.x > self.game.screen_width-10 :
             self.remove()
         self.collision()
 
