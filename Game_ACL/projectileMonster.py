@@ -10,7 +10,7 @@ class Projectile_monster(pygame.sprite.Sprite):
         self.game = game
         self.monster=monster
         self.direction = direction
-        self.velocity = 9
+        self.velocity = 10
         self.ratio = 17
         self.width = self.game.screen_width / self.ratio
         self.height = self.game.screen_height / self.ratio

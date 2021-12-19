@@ -13,7 +13,7 @@ class Player(pygame.sprite.Sprite):
         self.health = 80
         self.health_max = 80
         self.attack = 5
-        self.velocity = 8
+        self.velocity = 15
         self.all_projectiles = pygame.sprite.Group()
         self.image = pygame.image.load(f'assets/pacman_right.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))

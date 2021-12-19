@@ -36,7 +36,7 @@ class Monster(pygame.sprite.Sprite):
 
     def set_speed(self,speed):
         self.default_speed = speed
-        self.velocity = random.randint(1,self.default_speed)
+        self.velocity = random.randint(3,self.default_speed)
 
     def update_health_bar(self,surface):
         pygame.draw.rect(surface,(60,60,60),[self.rect.x + 15, self.rect.y - 20, self.health_max, 5])
@@ -159,7 +159,7 @@ class Ghost_red(Monster):
         self.health = 50
         self.health_max = 50
         self.attack = 0.5
-        self.set_speed(5)
+        self.set_speed(7)
         self.point=2
         self.name=Ghost_red
         self.image = pygame.image.load(f'assets/Ghost_red.png')
@@ -176,7 +176,7 @@ class Ghost_blue(Monster):
         self.health_max=50
         self.attack=0.3
         self.attack_distance=20
-        self.set_speed(3)
+        self.set_speed(4)
         self.point=2
         self.name=Ghost_blue
         self.image = pygame.image.load(f'assets/Ghost_blue.png')
