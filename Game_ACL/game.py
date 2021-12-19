@@ -54,7 +54,7 @@ class Game():
                     [self.screen_height/20, self.screen_width*4/5, self.screen_width/5, self.screen_height*4/5],
                     [self.screen_height / 20, self.screen_width/2-self.screen_width/3 ,self.screen_width/3 , (200+self.screen_height / 10)*screen_height/810],
                     [self.screen_height / 5, self.screen_width /25, self.screen_width/3, (100+self.screen_height / 20)*screen_height/810]],
-                    [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
+                    [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]], #fin lvl 1
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]]]
 
 
@@ -195,21 +195,25 @@ class Game():
 
         if self.pressed.get(pygame.K_RIGHT) and self.player.rect.x + self.player.rect.width < self.screen_width:
             self.player.move_right()
+            self.player.change_image('right')
             if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_left()
 
         elif self.pressed.get(pygame.K_LEFT) and self.player.rect.x > -5:
             self.player.move_left()
+            self.player.change_image('left')
             if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_right()
 
         elif self.pressed.get(pygame.K_UP) and self.player.rect.y > 0:
             self.player.move_up()
+            self.player.change_image('up')
             if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_down()
 
         elif self.pressed.get(pygame.K_DOWN) and self.player.rect.y + self.player.rect.height < self.screen_height - 5:
             self.player.move_down()
+            self.player.change_image('down')
             if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_up()
 
