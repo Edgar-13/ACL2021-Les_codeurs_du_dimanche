@@ -53,8 +53,8 @@ class Game():
                     [self.screen_height/20, self.screen_width/3, 433*screen_width/810, 350*screen_height/810],
                     [self.screen_height/20, self.screen_width*4/5, self.screen_width/5, self.screen_height*4/5],
                     [self.screen_height / 20, self.screen_width/2-self.screen_width/3 ,self.screen_width/3 , (200+self.screen_height / 10)*screen_height/810],
-                    [self.screen_height / 5, self.screen_width /25, self.screen_width/3, (100+self.screen_height / 20)*screen_height/810]],
-                    [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]], #fin lvl 1
+                    [self.screen_height / 5, self.screen_width /25, self.screen_width/3, (100+self.screen_height / 20)*screen_height/810]], #fin lvl 1
+                    [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]]]
 
 
