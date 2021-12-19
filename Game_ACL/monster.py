@@ -71,11 +71,11 @@ class Monster(pygame.sprite.Sprite):
                 self.condition_red=False
             else:
                 self.condition_red=True
-        if self.rect.x>200:
-            limit_right = 750
-            limit_left = 250
+        if self.rect.x>200*self.game.screen_width/810:
+            limit_right = 750*self.game.screen_width/810
+            limit_left = 250*self.game.screen_width/810
         else:
-            limit_right = 200
+            limit_right = 200*self.game.screen_width/810
             limit_left = 0
         if name == Ghost_red:
             if self.condition_red:
@@ -94,11 +94,11 @@ class Monster(pygame.sprite.Sprite):
         if name == Ghost_blue:
             if self.condition_blue:
                 self.move_right()
-                if self.rect.x>=self.var+300:
+                if self.rect.x>=self.var+300*self.game.screen_width/810:
                     self.condition_blue = False
             else:
                 self.move_left()
-                if self.rect.x<= 10:
+                if self.rect.x<= 10*self.game.screen_width/810:
                     self.condition_blue=True
 
 

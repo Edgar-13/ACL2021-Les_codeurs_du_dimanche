@@ -15,6 +15,8 @@ class Game():
        #taille écran
         self.screen_width = screen_height
         self.screen_height = screen_height
+        print(self.screen_width)
+        print(self.screen_height)
         #niveau actif
         self.niveau = 0
         # nombre de niveau - 1
@@ -32,9 +34,9 @@ class Game():
         "monstres"
         self.all_monsters = pygame.sprite.Group()
         #liste des monstres par niveau
-        self.m = [[[Ghost_red, self.screen_width * 5 / 6, 30], [Ghost_blue, self.screen_width / 2, 100],
-               [Ghost_red, self.screen_width * 5 / 6, 395], [Ghost_blue, self.screen_width / 6, 250],
-               [Ghost_blue, self.screen_width / 3, 500], [Ghost_red, 0, self.screen_width * 4 / 5]],
+        self.m = [[[Ghost_red, self.screen_width * 5 / 6, 30*screen_height/810], [Ghost_blue, self.screen_width / 2, 100*screen_height/810],
+               [Ghost_red, self.screen_width * 5 / 6, 395*screen_height/810], [Ghost_blue, self.screen_width / 6, 250*screen_height/810],
+               [Ghost_blue, self.screen_width / 3, 500*screen_height/810], [Ghost_red, 0, self.screen_width * 4 / 5]],
 
               [[Ghost_red, 100,500],[Ghost_blue,500,50]],
                     [[Ghost_blue,100,300],[Ghost_red,500,500]]]
@@ -43,15 +45,15 @@ class Game():
         "obstacles"
         self.all_obstacles = pygame.sprite.Group()
         #list des obstacles par niveau (1 nv par ligne)
-        self.ob = [[[self.screen_height / 20, self.screen_width/3, 0, 100],
-                    [self.screen_height / 20, self.screen_width/3, self.screen_width*2/3, 100],
-                    [self.screen_height/3, self.screen_width/25, self.screen_width/2, 280],
-                    [self.screen_height/20, self.screen_width/3,self.screen_width*2/3 , 450],
-                    [self.screen_height/20, self.screen_width/3, 433, 550],
-                    [self.screen_height/20, self.screen_width/3, 433, 350],
-                    [self.screen_height/20, self.screen_width*4/5, screen_width/5, screen_height*4/5],
-                    [self.screen_height / 20, self.screen_width/2-self.screen_width/3 ,self.screen_width/3 , 200+self.screen_height / 10],
-                    [self.screen_height / 5, self.screen_width /25, self.screen_width/3, 100+self.screen_height / 20]],
+        self.ob = [[[self.screen_height / 20, self.screen_width/3, 0, 100*screen_height/810],
+                    [self.screen_height / 20, self.screen_width/3, self.screen_width*2/3, 100*screen_height/810],
+                    [self.screen_height/3, self.screen_width/25, self.screen_width/2, 280*screen_height/810],
+                    [self.screen_height/20, self.screen_width/3,self.screen_width*2/3 , 450*screen_height/810],
+                    [self.screen_height/20, self.screen_width/3, 433*screen_width/810, 550*screen_height/810],
+                    [self.screen_height/20, self.screen_width/3, 433*screen_width/810, 350*screen_height/810],
+                    [self.screen_height/20, self.screen_width*4/5, self.screen_width/5, self.screen_height*4/5],
+                    [self.screen_height / 20, self.screen_width/2-self.screen_width/3 ,self.screen_width/3 , (200+self.screen_height / 10)*screen_height/810],
+                    [self.screen_height / 5, self.screen_width /25, self.screen_width/3, (100+self.screen_height / 20)*screen_height/810]],
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]]]
 
