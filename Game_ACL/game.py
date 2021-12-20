@@ -34,12 +34,12 @@ class Game():
         "monstres"
         self.all_monsters = pygame.sprite.Group()
         #liste des monstres par niveau
-        self.m = [[[Ghost_red, self.screen_width * 5 / 6, 30*screen_height/810], [Ghost_blue, self.screen_width / 2, 100*screen_height/810],
-               [Ghost_red, self.screen_width * 5 / 6, 395*screen_height/810], [Ghost_blue, self.screen_width / 6, 250*screen_height/810],
-               [Ghost_blue, self.screen_width / 3, 500*screen_height/810], [Ghost_red, 0, self.screen_width * 4 / 5]],
+        self.m = [[[Ghost_red, self.screen_width * 5 / 6, 30*screen_height/810,2,2], [Ghost_blue, self.screen_width / 2, 100*screen_height/810,2,2],
+               [Ghost_red, self.screen_width * 5 / 6, 395*screen_height/810,2,1], [Ghost_blue, self.screen_width / 6, 250*screen_height/810,2,2],
+               [Ghost_blue, self.screen_width / 3, 500*screen_height/810,2,2], [Ghost_red, 0, self.screen_width * 4 / 5,2,1]],
 
-              [[Ghost_red, 100,500],[Ghost_blue,500,50]],
-                    [[Ghost_blue,100,300],[Ghost_red,500,500]]]
+              [[Ghost_red, 100,500,2,1],[Ghost_blue,500,50,2,2]],
+                    [[Ghost_blue,100,300,2,2],[Ghost_red,500,500,2,1]]]
 
 
         "obstacles"
@@ -49,9 +49,9 @@ class Game():
                     [self.screen_height / 20, self.screen_width/3, self.screen_width*2/3, 100*screen_height/810],
                     [self.screen_height/3, self.screen_width/25, self.screen_width/2, 280*screen_height/810],
                     [self.screen_height/20, self.screen_width/3,self.screen_width*2/3 , 450*screen_height/810],
-                    [self.screen_height/20, self.screen_width/3, 433*screen_width/810, 550*screen_height/810],
-                    [self.screen_height/20, self.screen_width/3, 433*screen_width/810, 350*screen_height/810],
-                    [self.screen_height/20, self.screen_width*4/5, self.screen_width/5, self.screen_height*4/5],
+                    [self.screen_height/30, self.screen_width/3, 433*screen_width/810, 550*screen_height/810],
+                    [self.screen_height/30, self.screen_width/3, 433*screen_width/810, 350*screen_height/810],
+                    [self.screen_height/30, self.screen_width*4/5, self.screen_width/5, self.screen_height*4/5], #tt en bas
                     [self.screen_height / 20, self.screen_width/2-self.screen_width/3 ,self.screen_width/3 , (200+self.screen_height / 10)*screen_height/810],
                     [self.screen_height / 5, self.screen_width /25, self.screen_width/3, (100+self.screen_height / 20)*screen_height/810]], #fin lvl 1
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
@@ -80,8 +80,8 @@ class Game():
         obstacles = Obstacles(largeur,hauteur,x,y)
         self.all_obstacles.add(obstacles)
 
-    def spawn_monster(self,name,xm,ym):
-        self.all_monsters.add(name.__call__(self,xm,ym))
+    def spawn_monster(self,name,xm,ym,speed,movment):
+        self.all_monsters.add(name.__call__(self,xm,ym,speed,movment))
         # self.monster=Ghost_red(self)
         # self.all_monsters.add(monster)
 
@@ -99,7 +99,7 @@ class Game():
             for obst in self.ob[self.niveau]:
                 self.ajouter_obstacle(obst[0],obst[1],obst[2],obst[3])
             for mst in self.m[self.niveau]:
-                self.spawn_monster(mst[0],mst[1],mst[2])
+                self.spawn_monster(mst[0],mst[1],mst[2],mst[3],mst[4])
             self.reset=False
 
         # gerer temps
@@ -108,7 +108,7 @@ class Game():
         if self.secondes < 0.0:
             self.game_over()
         time_text = self.font.render(f"Temps : {secondes}", True, (0, 0, 0))
-        screen.blit(time_text, (220, 20))
+        screen.blit(time_text, (520, 20))
 
         # afficher score
         score_text = self.font.render(f"Score : {self.score}",True,(0,0,0))
@@ -167,8 +167,11 @@ class Game():
             #             self.condition=True
             #     change=True
             if not self.player.rect.colliderect(monster):
-                #monster.move_alea()
-                monster.move_easy(monster.name)
+                if monster.movment == 1:
+                    monster.move_horizontal(monster.name)
+                elif monster.movment == 2:
+                    monster.move_vertical(monster.name)
+
                 # r=random.randint(1,400)
                 # if r<=2:
                 monster.shot_4Directions(monster.name)

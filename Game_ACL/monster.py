@@ -25,8 +25,7 @@ class Monster(pygame.sprite.Sprite):
         # self.rect = self.image.get_rect()
         # self.rect.x = xm
         # self.rect.y = ym
-        self.condition_red = True
-        self.condition_blue = True
+        self.condition_mov = True
         self.var = 300
 
     def damage(self,amount):
@@ -44,6 +43,7 @@ class Monster(pygame.sprite.Sprite):
 
     def remove(self):
         self.game.all_monsters.remove(self)
+        self.game.score += 151
 
     def move_alea(self):
         if not self.game.check_collision(self, self.game.all_player):
@@ -64,42 +64,50 @@ class Monster(pygame.sprite.Sprite):
                 # infliger des dégâts
                 self.game.player.damage(self.attack)
 
-    def move_easy(self,name):
+    def move_horizontal(self,name): # movment = 1
         #haut en bas si bleu, gauche à droite si rouge
         if self.game.check_collision(self,self.game.all_obstacles):
-            if self.condition_red:
-                self.condition_red=False
+            if self.condition_mov:
+                self.condition_mov=False
             else:
-                self.condition_red=True
+                self.condition_mov=True
         if self.rect.x>200*self.game.screen_width/810:
             limit_right = 750*self.game.screen_width/810
             limit_left = 250*self.game.screen_width/810
         else:
             limit_right = 200*self.game.screen_width/810
             limit_left = 0
-        if name == Ghost_red:
-            if self.condition_red:
-                self.move_right()
-                if self.rect.x>=limit_right:
-                    self.condition_red = False
-            else:
-                self.move_left()
-                if self.rect.x<= limit_left:
-                    self.condition_red=True
+        if self.condition_mov:
+            self.move_right()
+            if self.rect.x>=limit_right:
+                self.condition_mov = False
+        else:
+            self.move_left()
+            if self.rect.x<= limit_left:
+                self.condition_mov=True
+
+    def move_vertical(self, name):  # movment = 2
         if self.game.check_collision(self,self.game.all_obstacles):
-            if self.condition_blue:
-                self.condition_blue=False
+            if self.condition_mov:
+                self.condition_mov = False
             else:
-                self.condition_blue=True
-        if name == Ghost_blue:
-            if self.condition_blue:
-                self.move_right()
-                if self.rect.x>=self.var+300*self.game.screen_width/810:
-                    self.condition_blue = False
-            else:
-                self.move_left()
-                if self.rect.x<= 10*self.game.screen_width/810:
-                    self.condition_blue=True
+                self.condition_mov=True
+        # if self.rect.y>200*self.game.screen_height/810:
+        #     limit_right = 750*self.game.screen_height/810
+        #     limit_left = 350*self.game.screen_height/810
+        # else:
+        #     limit_right = 200*self.game.screen_height/810
+        #     limit_left = 0
+        if self.condition_mov:
+            self.move_up()
+            if self.rect.y<=self.game.screen_height/810:
+                self.condition_mov = False
+        else:
+            self.move_down()
+            if self.rect.y== self.game.screen_height/810:
+                self.condition_mov=True
+
+
 
 
     def move_left(self):
@@ -154,7 +162,7 @@ class Monster(pygame.sprite.Sprite):
 
 class Ghost_red(Monster):
 
-    def __init__(self,game,xm,ym):
+    def __init__(self,game,xm,ym,speed,movment):
         super().__init__(game,'Ghost_red',(230,230),xm,ym)
         self.health = 50
         self.health_max = 50
@@ -167,10 +175,13 @@ class Ghost_red(Monster):
         self.rect = self.image.get_rect()
         self.rect.x = xm
         self.rect.y = ym
+        self.speed = speed
+        #un entier qui sert à définir quel mouvement aura le monstre
+        self.movment = movment
 
 class Ghost_blue(Monster):
 
-    def __init__(self,game,xm,ym):
+    def __init__(self,game,xm,ym,speed,movment):
         super().__init__(game,'Ghost_blue',(230,230),xm,ym)
         self.health=50
         self.health_max=50
@@ -184,6 +195,10 @@ class Ghost_blue(Monster):
         self.rect = self.image.get_rect()
         self.rect.x = xm
         self.rect.y = ym
+        self.speed = speed
+        # un entier qui sert à définir quel mouvement aura le monstre
+        self.movment = movment
+
 
 
 
