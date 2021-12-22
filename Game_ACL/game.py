@@ -34,26 +34,50 @@ class Game():
         "monstres"
         self.all_monsters = pygame.sprite.Group()
         #liste des monstres par niveau
-        self.m = [[[Ghost_red, self.screen_width * 5 / 6, 30*screen_height/810,2,2], [Ghost_blue, self.screen_width / 2, 100*screen_height/810,2,2],
-               [Ghost_red, self.screen_width * 5 / 6, 395*screen_height/810,2,1], [Ghost_blue, self.screen_width / 6, 250*screen_height/810,2,2],
-               [Ghost_blue, self.screen_width / 3, 500*screen_height/810,2,2], [Ghost_red, 0, self.screen_width * 4 / 5,2,1]],
-
-              [[Ghost_red, 100,500,2,1],[Ghost_blue,500,50,2,2]],
-                    [[Ghost_blue,100,300,2,2],[Ghost_red,500,500,2,1]]]
+        #[nom monstre, pos x, pos y, vitesse, déplacemnt]
+        self.m = [[[Ghost_red, self.screen_width * 5 / 6, 30*screen_height/810,2,2],
+                   [Ghost_blue, self.screen_width / 2, 100*screen_height/810,2,2],
+                   [Ghost_red, self.screen_width * 5 / 6, 395*screen_height/810,2,1],
+                   [Ghost_blue, self.screen_width / 6, 250*screen_height/810,2,2],
+                   [Ghost_blue, self.screen_width / 3, 500*screen_height/810,2,2],
+                   [Ghost_red, 0, self.screen_width * 4 / 5,2,1]],
+                  [[Ghost_red, self.screen_width * 5 / 6, 30 * screen_height / 810, 2, 1],
+                   [Ghost_red, self.screen_width * 5 / 6, 300 * screen_height / 810, 2, 1],
+                   [Ghost_blue, self.screen_width * 5 / 6, 500 * screen_height / 810, 2, 1],
+                   [Ghost_red, self.screen_width * 5 / 6, 700 * screen_height / 810, 2, 2],
+                   [Ghost_blue, self.screen_width * 4 / 6, 150 * screen_height / 810, 2, 2],
+                   [Ghost_blue, self.screen_width * 1 / 6, 150 * screen_height / 810, 2, 1],
+                   [Ghost_blue, self.screen_width * 1.5 / 6, 300 * screen_height / 810, 2, 1],
+                   [Ghost_red, self.screen_width * 1.5 / 6, 500 * screen_height / 810, 2, 2],
+                   [Ghost_red, self.screen_width * 1 / 6, 650 * screen_height / 810, 2, 1]],
+                  [[Ghost_red, 100,500,2,1],[Ghost_blue,500,50,2,2]],
+                   [[Ghost_blue,100,300,2,2],[Ghost_red,500,500,2,1]]]
 
 
         "obstacles"
         self.all_obstacles = pygame.sprite.Group()
         #list des obstacles par niveau (1 nv par ligne)
+        #[largeur,longueur,pos en x, pos en y]
         self.ob = [[[self.screen_height / 20, self.screen_width/3, 0, 100*screen_height/810],
                     [self.screen_height / 20, self.screen_width/3, self.screen_width*2/3, 100*screen_height/810],
                     [self.screen_height/3, self.screen_width/25, self.screen_width/2, 280*screen_height/810],
-                    [self.screen_height/20, self.screen_width/3,self.screen_width*2/3 , 450*screen_height/810],
+                    [self.screen_height/30, self.screen_width/3,self.screen_width*2/3 , 450*screen_height/810],
                     [self.screen_height/30, self.screen_width/3, 433*screen_width/810, 550*screen_height/810],
                     [self.screen_height/30, self.screen_width/3, 433*screen_width/810, 350*screen_height/810],
-                    [self.screen_height/30, self.screen_width*4/5, self.screen_width/5, self.screen_height*4/5], #tt en bas
+                    [self.screen_height/30, self.screen_width*4/5, self.screen_width/5, self.screen_height*4/5],
                     [self.screen_height / 20, self.screen_width/2-self.screen_width/3 ,self.screen_width/3 , (200+self.screen_height / 10)*screen_height/810],
-                    [self.screen_height / 5, self.screen_width /25, self.screen_width/3, (100+self.screen_height / 20)*screen_height/810]], #fin lvl 1
+                    [self.screen_height / 5, self.screen_width /25, self.screen_width/3, (100+self.screen_height / 20)*screen_height/810]],
+                   [[self.screen_height / 20, self.screen_width / 2, 0, 80 * screen_height / 810],
+                     [self.screen_height / 20, self.screen_width / 2, self.screen_height / 1.6, 80 * screen_height / 810],
+                     [self.screen_height / 20, self.screen_width / 2, -self.screen_height / 2.2, 220 * screen_height / 810],
+                     [self.screen_height / 20, self.screen_width / 1.8, self.screen_height / 6.6, 220 * screen_height / 810],
+                     [self.screen_height / 20, self.screen_width / 2.5, self.screen_height / 1.2, 220 * screen_height / 810],
+                     [self.screen_height / 20, self.screen_width / 1.5, self.screen_height / 1.8, 400 * screen_height / 810],
+                     [self.screen_height / 20, self.screen_width / 2, -0.5 * self.screen_height / 10, 400 * screen_height / 810],
+                     [self.screen_height / 2, self.screen_width / 15, self.screen_height / 1.8, 220 * screen_height / 810],
+                     [self.screen_height / 20, self.screen_width / 1.5, self.screen_height / 4.5, 585 * screen_height / 810],
+                     [self.screen_height / 20, self.screen_width / 2, -self.screen_height / 2.6, 585 * screen_height / 810],
+                     [self.screen_height / 2, self.screen_width / 15, self.screen_height / 1.8, 700 * screen_height / 810]],
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]]]
 

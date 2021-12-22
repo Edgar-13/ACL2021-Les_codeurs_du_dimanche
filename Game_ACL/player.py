@@ -18,8 +18,8 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load(f'assets/pacman_right.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
-        self.rect.x=40
-        self.rect.y=40
+        self.rect.x=20
+        self.rect.y=20
         self.game=game
 
     def change_image(self,direction):
