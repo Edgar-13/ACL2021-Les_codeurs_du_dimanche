@@ -9,6 +9,8 @@ from obstacles import Obstacles
 from projectileMonster import Projectile_monster
 from projectile import Projectile
 import monster
+import bonus
+from bonus import CinquantePoints
 
 class Game():
     def __init__(self, screen_width, screen_height):
@@ -81,8 +83,11 @@ class Game():
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]]]
 
+        "Bonus"
+        self.all_bonus = pygame.sprite.Group()
+        self.bonus=[[[CinquantePoints,self.screen_width * 5 / 6, 30*screen_height/810]],[]]
 
-        #création spite arrivée
+    #création spite arrivée
         self.end = pygame.image.load("assets/end.bmp")
         self.end = pygame.transform.scale(self.end, (self.screen_width / 10, self.screen_width / 10))
         self.end_rect = self.end.get_rect()
@@ -109,6 +114,10 @@ class Game():
         # self.monster=Ghost_red(self)
         # self.all_monsters.add(monster)
 
+    def ajouter_bonus(self,name,xm,ym):
+        self.all_bonus.add(name.__call__(self,xm,ym))
+
+
     def start (self):
         self.is_playing = True
         # afficher les monstres
@@ -120,10 +129,13 @@ class Game():
         if self.reset:
             self.all_obstacles.empty()
             self.all_monsters.empty()
+            self.all_bonus.empty()
             for obst in self.ob[self.niveau]:
                 self.ajouter_obstacle(obst[0],obst[1],obst[2],obst[3])
             for mst in self.m[self.niveau]:
                 self.spawn_monster(mst[0],mst[1],mst[2],mst[3],mst[4])
+            for bon in self.bonus[self.niveau]:
+                self.ajouter_bonus(bon[0],bon[1],bon[2])
             self.reset=False
 
         # gerer temps
@@ -158,6 +170,15 @@ class Game():
 
         # afficher les monstres
         self.all_monsters.draw(screen)
+
+        # afficher projectiles
+        self.player.all_projectiles.draw(screen)
+
+        # afficher les obstacles
+        self.all_obstacles.draw(screen)
+
+        #afficher les bonus
+        self.all_bonus.draw(screen)
 
         # end
         screen.blit(self.end, self.end_rect)
@@ -212,11 +233,7 @@ class Game():
             else:
                 self.player.damage(monster.attack)
 
-        # appliquer l'ensemble des images de mon groupe de projectile
-        self.player.all_projectiles.draw(screen)
 
-        # afficher les obstacles
-        self.all_obstacles.draw(screen)
 
         # voir si on reste appuier sur une touche
 
@@ -251,6 +268,14 @@ class Game():
             self.reset = True
         elif self.player.rect.colliderect(self.end_rect) and self.niveau==self.nbr_niveau:
             self.game_over()
+
+        #definir les condition pour les bonus
+        for bonus in self.all_bonus :
+            if self.player.rect.colliderect(bonus) :
+                self.player.health += bonus.vie
+                self.score += bonus.point
+                self.player.velocity += bonus.vitesse
+                bonus.remove()
 
 
 
