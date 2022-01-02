@@ -11,6 +11,8 @@ from projectile import Projectile
 import monster
 import bonus
 from bonus import CinquantePoints
+from sounds import SoundManager
+
 
 class Game():
     def __init__(self, screen_width, screen_height):
@@ -25,6 +27,8 @@ class Game():
         self.nbr_niveau = 2
         #definir si le jeu est en cours
         self.is_playing = False
+       #gérer le son
+        self.sound_manager = SoundManager()
 
         #groupe de sprite joueur
         self.all_player = pygame.sprite.Group()
@@ -272,6 +276,8 @@ class Game():
         #definir les condition pour les bonus
         for bonus in self.all_bonus :
             if self.player.rect.colliderect(bonus) :
+                # musique bonus
+                self.sound_manager.play('bonus')
                 self.player.health += bonus.vie
                 self.score += bonus.point
                 self.player.velocity += bonus.vitesse
@@ -287,6 +293,9 @@ class Game():
         self.score = 0
         self.secondes = self.start_timer
         self.reset=True
+        # jouer le son
+        pygame.mixer.stop()
+        self.sound_manager.play('game_over')
 
     def end(self): # a mieux def
         self.player.health = self.player.health_max

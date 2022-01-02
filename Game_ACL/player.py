@@ -28,6 +28,7 @@ class Player(pygame.sprite.Sprite):
 
 
     def launch_projectile(self, direction):
+        # self.game.sound_manager.play('shoot')
         # creer une nouvelle instance de la classe Projectile
         if direction == 'up':
             projectile = Projectile(self, self.game, direction)

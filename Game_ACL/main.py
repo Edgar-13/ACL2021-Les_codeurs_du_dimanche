@@ -88,6 +88,8 @@ while running:
             if play_button_rect.collidepoint(event.pos):
                 # Lancer le jeu
                 game.start()
+                #jouer le son
+                game.sound_manager.play('ambiance')
 
     #fixer le nbr de fps
     clock.tick(FPS)
