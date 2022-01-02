@@ -66,7 +66,7 @@ class VEL(Bonus):
         self.point = 0
         self.vitesse = 2
         self.vie = 0
-        self.name=CinquantePoints
+        self.name=VEL
         self.image = pygame.image.load(f'assets/VEL.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()

@@ -10,7 +10,7 @@ from projectileMonster import Projectile_monster
 from projectile import Projectile
 import monster
 import bonus
-from bonus import CinquantePoints
+from bonus import CinquantePoints,CentPoints,LIFE,VEL
 from sounds import SoundManager
 
 
@@ -89,7 +89,8 @@ class Game():
 
         "Bonus"
         self.all_bonus = pygame.sprite.Group()
-        self.bonus=[[[CinquantePoints,self.screen_width * 5 / 6, 30*screen_height/810]],[]]
+        self.bonus=[[[CinquantePoints,self.screen_width * 5 / 6, 30*screen_height/810],
+                     [LIFE,180,150]],[]]
 
     #création spite arrivée
         self.end = pygame.image.load("assets/end.bmp")
