@@ -24,7 +24,7 @@ class Game():
         #niveau actif
         self.niveau = 0
         # nombre de niveau - 1
-        self.nbr_niveau = 2
+        self.nbr_niveau = 3
         #definir si le jeu est en cours
         self.is_playing = False
        #gérer le son
@@ -90,7 +90,7 @@ class Game():
         "Bonus"
         self.all_bonus = pygame.sprite.Group()
         self.bonus=[[[CinquantePoints,self.screen_width * 5 / 6, 30*screen_height/810],
-                     [LIFE,180,150]],[],[]]
+                     [LIFE,180,150]],[],[],[]]
 
     #création spite arrivée
         self.end = pygame.image.load("assets/end.bmp")
