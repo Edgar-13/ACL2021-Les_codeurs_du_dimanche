@@ -90,7 +90,7 @@ class Game():
         "Bonus"
         self.all_bonus = pygame.sprite.Group()
         self.bonus=[[[CinquantePoints,self.screen_width * 5 / 6, 30*screen_height/810],
-                     [LIFE,180,150]],[]]
+                     [LIFE,180,150]],[],[]]
 
     #création spite arrivée
         self.end = pygame.image.load("assets/end.bmp")
