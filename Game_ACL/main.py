@@ -27,7 +27,7 @@ game = Game(screen_width, screen_height)
 
 # Bouton Jouer
 play_button = pygame.image.load("assets/button.png")
-play_button = pygame.transform.scale(play_button, (screen_width / 3, screen_height / 3))
+play_button = pygame.transform.scale(play_button, (screen_width / 3, screen_height / 4))
 play_button_rect = play_button.get_rect()
 play_button_rect.center = (screen_width/2 , screen_height /2)
 

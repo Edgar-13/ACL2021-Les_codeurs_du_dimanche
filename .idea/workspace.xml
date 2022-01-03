@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="quand le timer passe en dessous de 0 il y game over">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2021_19_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2021_19_19__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Diagramme de séquence v2.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/Diagramme de séquence v2.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game_ACL/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game_ACL/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
