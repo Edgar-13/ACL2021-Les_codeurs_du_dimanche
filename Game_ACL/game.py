@@ -239,7 +239,6 @@ class Game():
                 self.player.damage(monster.attack)
 
 
-
         # voir si on reste appuier sur une touche
 
         if self.pressed.get(pygame.K_RIGHT) and self.player.rect.x + self.player.rect.width < self.screen_width:
@@ -308,4 +307,8 @@ class Game():
 
 
     def check_collision(self,sprite,group):
+
+
         return pygame.sprite.spritecollide(sprite,group,False,pygame.sprite.collide_mask)
+        
+        
