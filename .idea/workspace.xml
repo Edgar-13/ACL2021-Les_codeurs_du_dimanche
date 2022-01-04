@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="niveau">
+    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="bg3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game_ACL/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game_ACL/game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,12 +51,15 @@
     <option name="defaultAccountId" value="0e12169e-e029-44b9-9095-cf785cd6aa4d" />
   </component>
   <component name="ProjectId" id="2136UvOXh5maGFgzY1Tw5hfTUpZ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Game_ACL/main.py" />
@@ -240,7 +244,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641221415051</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="bg3">
+      <created>1641299320234</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1641299320234</updated>
+    </task>
+    <task id="LOCAL-00023" summary="bg3">
+      <created>1641299343457</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1641299343457</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +274,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="j'ai juste changé la taille de l'écran" />
     <MESSAGE value="suppr print" />
     <MESSAGE value="taille ecran" />
@@ -266,6 +285,7 @@
     <MESSAGE value="bouton play" />
     <MESSAGE value="bonus" />
     <MESSAGE value="niveau" />
-    <option name="LAST_COMMIT_MESSAGE" value="niveau" />
+    <MESSAGE value="bg3" />
+    <option name="LAST_COMMIT_MESSAGE" value="bg3" />
   </component>
 </project>

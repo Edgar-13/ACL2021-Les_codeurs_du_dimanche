@@ -149,7 +149,7 @@ class Game():
         if self.secondes < 0.0:
             self.game_over()
         time_text = self.font.render(f"Temps : {secondes}", True, (0, 0, 0))
-        screen.blit(time_text, (520, 20))
+        screen.blit(time_text, (self.screen_width/2, self.screen_height/30))
 
         # afficher score
         score_text = self.font.render(f"Score : {self.score}",True,(0,0,0))
