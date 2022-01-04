@@ -22,7 +22,7 @@ class Game():
         print(self.screen_width)
         print(self.screen_height)
         #niveau actif
-        self.niveau = 0
+        self.niveau = 3
         # nombre de niveau - 1
         self.nbr_niveau = 3
         #definir si le jeu est en cours
@@ -57,7 +57,7 @@ class Game():
                    [Ghost_red, self.screen_width * 1.5 / 6, 500 * screen_height / 810, 2, 2],
                    [Ghost_red, self.screen_width * 1 / 6, 650 * screen_height / 810, 2, 1]],
                   [[Ghost_red, 100,500,2,1],[Ghost_blue,500,50,2,2]],
-                   [[Ghost_blue,100,300,2,2],[Ghost_red,500,500,2,1]]]
+                   [[Ghost_red,self.screen_width*0.85,self.screen_height/6,2,1],[Ghost_red,self.screen_width*0.5,self.screen_height*0.5,2,1]]]
 
 
         "obstacles"
@@ -85,7 +85,8 @@ class Game():
                      [self.screen_height / 20, self.screen_width / 2, -self.screen_height / 2.6, 585 * screen_height / 810],
                      [self.screen_height / 2, self.screen_width / 15, self.screen_height / 1.8, 700 * screen_height / 810]],
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
-                    [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]]]
+                    [[self.screen_height / 20, 4*self.screen_width/5, 0, self.screen_height/6],[self.screen_height / 11, self.screen_width/20, self.screen_width/6, 0],
+                     ]]
 
         "Bonus"
         self.all_bonus = pygame.sprite.Group()
