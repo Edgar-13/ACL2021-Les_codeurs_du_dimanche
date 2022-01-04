@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="bg3">
+    <list default="true" id="d42ed3fa-1076-46b2-8395-c3d7f9397ff6" name="Changes" comment="time">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game_ACL/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game_ACL/game.py" afterDir="false" />
     </list>
@@ -258,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641299343457</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="time">
+      <created>1641300187359</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1641300187359</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,6 +293,7 @@
     <MESSAGE value="bonus" />
     <MESSAGE value="niveau" />
     <MESSAGE value="bg3" />
-    <option name="LAST_COMMIT_MESSAGE" value="bg3" />
+    <MESSAGE value="time" />
+    <option name="LAST_COMMIT_MESSAGE" value="time" />
   </component>
 </project>

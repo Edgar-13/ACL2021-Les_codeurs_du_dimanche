@@ -265,13 +265,14 @@ class Game():
             if self.check_collision(self.player, self.all_obstacles) or self.check_collision(self.player, self.all_monsters):
                 self.player.move_up()
 
-        if self.player.rect.colliderect(self.end_rect) and self.niveau<=1 :
-            self.player.reset_position()
-            self.niveau += 1
-            self.score+=100
-            self.reset = True
-        elif self.player.rect.colliderect(self.end_rect) and self.niveau==self.nbr_niveau:
-            self.game_over()
+        if self.player.rect.colliderect(self.end_rect):
+            if self.niveau==self.nbr_niveau:
+                self.game_over()
+            else:
+                self.player.reset_position()
+                self.niveau += 1
+                self.score+=100
+                self.reset = True
 
         #definir les condition pour les bonus
         for bonus in self.all_bonus :
