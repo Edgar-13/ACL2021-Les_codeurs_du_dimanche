@@ -22,7 +22,7 @@ class Game():
         print(self.screen_width)
         print(self.screen_height)
         #niveau actif
-        self.niveau = 3
+        self.niveau = 0
         # nombre de niveau - 1
         self.nbr_niveau = 3
         #definir si le jeu est en cours
@@ -59,7 +59,8 @@ class Game():
                   [[Ghost_red, 100,500,2,1],[Ghost_blue,500,50,2,2]],
                    [[Ghost_red,self.screen_width*0.85,self.screen_height/6,2,1],[Ghost_blue,self.screen_width*0.6,20,2,2],
                     [Ghost_red,self.screen_width*0.3,self.screen_height*0.11,2,1],[Ghost_blue,self.screen_width*0.6,self.screen_height*0.5,2,2],
-                    [Ghost_blue,self.screen_width*0.7,self.screen_height*0.3,2,2]]]
+                    [Ghost_blue,self.screen_width*0.7,self.screen_height*0.3,2,2],[Ghost_blue,self.screen_width*0.25,self.screen_height*0.62,2,1],
+                    [Ghost_red,self.screen_width*0.1,self.screen_height*0.7,2,1],[Ghost_blue,self.screen_width*0.27,self.screen_height*0.9,2,1]]]
 
 
         "obstacles"
@@ -88,14 +89,16 @@ class Game():
                      [self.screen_height / 2, self.screen_width / 15, self.screen_height / 1.8, 700 * screen_height / 810]],
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
                     [[self.screen_height / 20, 4*self.screen_width/5, 0, self.screen_height/6],[self.screen_height / 11, self.screen_width/20, self.screen_width/6, 0],
-                     [self.screen_height / 11, self.screen_width/20, self.screen_width*0.5, self.screen_height/11],[self.screen_height / 20, 2*self.screen_width/3, 0.5*self.screen_width, self.screen_height*0.8],
-                     [self.screen_height * 0.5, self.screen_width / 20, 0.5 * self.screen_width, self.screen_height * 0.3],[self.screen_height / 20, self.screen_width*0.3, 0.5 * self.screen_width, self.screen_height * 0.65]
-                     ]]
+                     [self.screen_height / 11, self.screen_width/20, self.screen_width*0.5, self.screen_height/11],[self.screen_height / 20, 4*self.screen_width/5, 0.2*self.screen_width, self.screen_height*0.8],
+                     [self.screen_height * 0.5, self.screen_width / 20, 0.5 * self.screen_width, self.screen_height * 0.3],[self.screen_height / 20, self.screen_width*0.3, 0.5 * self.screen_width, self.screen_height * 0.65],
+                     [self.screen_height /20, self.screen_width*0.405, 0.1 * self.screen_width, self.screen_height * 0.3],[self.screen_height /20, self.screen_width*0.405, 0 * self.screen_width, self.screen_height * 0.44],
+                     [self.screen_height * 0.2, self.screen_width / 20, 0.2 * self.screen_width, self.screen_height * 0.6],[self.screen_height / 20, self.screen_width, 0, self.screen_height],
+                     [self.screen_height / 12, self.screen_width/20, self.screen_width*0.7, self.screen_height*0.92]]]
 
         "Bonus"
         self.all_bonus = pygame.sprite.Group()
         self.bonus=[[[CinquantePoints,self.screen_width * 5 / 6, 30*self.screen_height/810],
-                     [LIFE,180,150]],[],[],[]]
+                     [LIFE,180,150]],[],[],[[LIFE,0.55 * self.screen_width, self.screen_height * 0.72],[CinquantePoints,0.33 * self.screen_width, self.screen_height * 0.72]]]
 
     #création spite arrivée
         self.end = pygame.image.load("assets/end.bmp")
