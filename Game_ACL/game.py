@@ -57,7 +57,9 @@ class Game():
                    [Ghost_red, self.screen_width * 1.5 / 6, 500 * screen_height / 810, 2, 2],
                    [Ghost_red, self.screen_width * 1 / 6, 650 * screen_height / 810, 2, 1]],
                   [[Ghost_red, 100,500,2,1],[Ghost_blue,500,50,2,2]],
-                   [[Ghost_red,self.screen_width*0.85,self.screen_height/6,2,1],[Ghost_blue,self.screen_width*0.6,20,2,2]]]
+                   [[Ghost_red,self.screen_width*0.85,self.screen_height/6,2,1],[Ghost_blue,self.screen_width*0.6,20,2,2],
+                    [Ghost_red,self.screen_width*0.3,self.screen_height*0.11,2,1],[Ghost_blue,self.screen_width*0.6,self.screen_height*0.5,2,2],
+                    [Ghost_blue,self.screen_width*0.7,self.screen_height*0.3,2,2]]]
 
 
         "obstacles"
@@ -86,11 +88,13 @@ class Game():
                      [self.screen_height / 2, self.screen_width / 15, self.screen_height / 1.8, 700 * screen_height / 810]],
                     [[self.screen_height / 20, self.screen_width/5, 500, 500],[self.screen_height / 20, self.screen_width/5, 100, 100]],
                     [[self.screen_height / 20, 4*self.screen_width/5, 0, self.screen_height/6],[self.screen_height / 11, self.screen_width/20, self.screen_width/6, 0],
-                     [self.screen_height / 11, self.screen_width/20, self.screen_width*0.5, self.screen_height/11]]]
+                     [self.screen_height / 11, self.screen_width/20, self.screen_width*0.5, self.screen_height/11],[self.screen_height / 20, 2*self.screen_width/3, 0.5*self.screen_width, self.screen_height*0.8],
+                     [self.screen_height * 0.5, self.screen_width / 20, 0.5 * self.screen_width, self.screen_height * 0.3],[self.screen_height / 20, self.screen_width*0.3, 0.5 * self.screen_width, self.screen_height * 0.65]
+                     ]]
 
         "Bonus"
         self.all_bonus = pygame.sprite.Group()
-        self.bonus=[[[CinquantePoints,self.screen_width * 5 / 6, 30*screen_height/810],
+        self.bonus=[[[CinquantePoints,self.screen_width * 5 / 6, 30*self.screen_height/810],
                      [LIFE,180,150]],[],[],[]]
 
     #création spite arrivée
