@@ -127,6 +127,8 @@ class Game():
         self.var=300
         self.condition=True
 
+        self.makeMonsterShoot = True
+
 
     def ajouter_obstacle(self,largeur,hauteur,x,y):
         obstacles = Obstacles(largeur,hauteur,x,y)
@@ -146,8 +148,8 @@ class Game():
         # afficher les monstres
 
 
-
     def update(self,screen):
+        global temps1
         #on vides les groupes de sprites puis on les affiches : pb car on les creers en boucles et supr en boucle
         if self.reset:
             self.all_obstacles.empty()
@@ -300,7 +302,17 @@ class Game():
                 self.player.health += bonus.vie
                 self.score += bonus.point
                 self.player.velocity += bonus.vitesse
+                if bonus.name==StopShoot:
+                    self.makeMonsterShoot = False
+                    temps1 = secondes
+                    for mst in self.all_monsters:
+                        mst.disableShoot()
                 bonus.remove()
+        if not self.makeMonsterShoot:
+            if secondes < temps1 - 10:
+                self.makeMonsterShoot = True
+                for mst in self.all_monsters:
+                    mst.enableShoot()
 
 
 

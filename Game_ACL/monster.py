@@ -27,6 +27,7 @@ class Monster(pygame.sprite.Sprite):
         # self.rect.y = ym
         self.condition_mov = True
         self.var = 300
+        self.shoot = True
 
     def damage(self,amount):
         #infliger des dégats avec projectile
@@ -138,25 +139,32 @@ class Monster(pygame.sprite.Sprite):
             #infliger des dégâts
             self.game.player.damage(self.attack)
 
+    def disableShoot(self):
+        self.shoot = False
+
+    def enableShoot(self):
+        self.shoot = True
+
     def shot_4Directions(self,name):
-        if name==Ghost_blue:
-            n=self.game.secondes
-            n0 = self.game.start_timer
-            test=(n0 - n) % 6000
-            if test == 1450:
-                #self.projectile.move_right()
-        # creer une nouvelle instance de la classe Projectile_monster
-                projectile = Projectile_monster(self.game, 'up', name,self)
-                self.all_projectiles_monster.add(projectile)
-            if test == 2900:
-                projectile = Projectile_monster(self.game, 'left', name,self)
-                self.all_projectiles_monster.add(projectile)
-            if test == 4350:
-                projectile = Projectile_monster(self.game, 'right', name,self)
-                self.all_projectiles_monster.add(projectile)
-            if test == 5800:
-                projectile = Projectile_monster(self.game, 'down', name,self)
-                self.all_projectiles_monster.add(projectile)
+        if self.shoot:
+            if name==Ghost_blue:
+                n=self.game.secondes
+                n0 = self.game.start_timer
+                test=(n0 - n) % 6000
+                if test == 1450:
+                    #self.projectile.move_right()
+            # creer une nouvelle instance de la classe Projectile_monster
+                    projectile = Projectile_monster(self.game, 'up', name,self)
+                    self.all_projectiles_monster.add(projectile)
+                if test == 2900:
+                    projectile = Projectile_monster(self.game, 'left', name,self)
+                    self.all_projectiles_monster.add(projectile)
+                if test == 4350:
+                    projectile = Projectile_monster(self.game, 'right', name,self)
+                    self.all_projectiles_monster.add(projectile)
+                if test == 5800:
+                    projectile = Projectile_monster(self.game, 'down', name,self)
+                    self.all_projectiles_monster.add(projectile)
 
 
 
