@@ -22,7 +22,7 @@ class Game():
         print(self.screen_width)
         print(self.screen_height)
         #niveau actif
-        self.niveau = 1
+        self.niveau = 0
         # nombre de niveau - 1
         self.nbr_niveau = 3
         #definir si le jeu est en cours
