@@ -30,18 +30,19 @@ class Player(pygame.sprite.Sprite):
     def launch_projectile(self, direction):
         # self.game.sound_manager.play('shoot')
         # creer une nouvelle instance de la classe Projectile
-        if direction == 'up':
-            projectile = Projectile(self, self.game, direction)
-            self.all_projectiles.add(projectile)
-        if direction == 'down':
-            projectile = Projectile(self, self.game, direction)
-            self.all_projectiles.add(projectile)
-        if direction == 'left':
-            projectile = Projectile(self, self.game, direction)
-            self.all_projectiles.add(projectile)
-        if direction == 'right':
-            projectile = Projectile(self, self.game, direction)
-            self.all_projectiles.add(projectile)
+        if len(self.all_projectiles)< 5:
+            if direction == 'up':
+                projectile = Projectile(self, self.game, direction)
+                self.all_projectiles.add(projectile)
+            if direction == 'down':
+                projectile = Projectile(self, self.game, direction)
+                self.all_projectiles.add(projectile)
+            if direction == 'left':
+                projectile = Projectile(self, self.game, direction)
+                self.all_projectiles.add(projectile)
+            if direction == 'right':
+                projectile = Projectile(self, self.game, direction)
+                self.all_projectiles.add(projectile)
 
 
     def reset_position(self):
