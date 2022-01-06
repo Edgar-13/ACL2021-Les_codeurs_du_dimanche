@@ -9,7 +9,7 @@ class Projectile(pygame.sprite.Sprite):
     #définir le constructeur de cette classe
     def __init__(self,player,game,direction):
         super().__init__()
-        self.velocity = 10
+        self.velocity = 15
         self.ratio = 15
         self.game = game
         self.player = player
