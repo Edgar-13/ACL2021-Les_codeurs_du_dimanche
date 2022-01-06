@@ -47,7 +47,7 @@ class Game():
                    [Ghost_blue, self.screen_width / 6, 250*screen_height/810,2,2],
                    [Ghost_blue, self.screen_width / 3, 500*screen_height/810,2,2],
                    [Ghost_red, 0, self.screen_width * 4 / 5,2,1]],
-                  [[Ghost_red, self.screen_width * 5 / 6, 30 * screen_height / 810, 2, 1],
+                  [[Ghost_red, self.screen_width * 5 / 6, 30 * screen_height / 810, 2, 2],
                    [Ghost_red, self.screen_width * 5 / 6, 300 * screen_height / 810, 2, 1],
                    [Ghost_blue, self.screen_width * 5 / 6, 500 * screen_height / 810, 2, 1],
                    [Ghost_red, self.screen_width * 5 / 6, 700 * screen_height / 810, 2, 2],
