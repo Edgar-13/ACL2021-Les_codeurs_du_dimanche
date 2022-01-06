@@ -104,7 +104,7 @@ class Monster(pygame.sprite.Sprite):
                 self.condition_mov = False
         else:
             self.move_down()
-            if self.rect.y== self.game.screen_height:
+            if self.rect.y>= self.game.screen_height:
                 self.condition_mov=True
 
 
