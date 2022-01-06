@@ -38,8 +38,8 @@ class Monster(pygame.sprite.Sprite):
         self.velocity = random.randint(3,self.default_speed)
 
     def update_health_bar(self,surface):
-        pygame.draw.rect(surface,(60,60,60),[self.rect.x + 15, self.rect.y - 20, self.health_max, 5])
-        pygame.draw.rect(surface,(111,210,46),[self.rect.x+15,self.rect.y-20,self.health,5])
+        pygame.draw.rect(surface,(60,60,60),[self.rect.x + 5, self.rect.y - 20, self.health_max, 5])
+        pygame.draw.rect(surface,(111,210,46),[self.rect.x+5,self.rect.y-20,self.health,5])
 
     def remove(self):
         self.game.all_monsters.remove(self)

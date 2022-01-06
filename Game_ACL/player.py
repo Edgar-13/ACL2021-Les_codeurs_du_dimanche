@@ -61,8 +61,8 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += self.velocity
 
     def update_health_bar(self,surface):
-        pygame.draw.rect(surface,(60,60,60),[self.rect.x+5, self.rect.y, self.health_max,5])
-        pygame.draw.rect(surface,(111,210,46),[self.rect.x+5,self.rect.y,self.health,5])
+        pygame.draw.rect(surface,(60,60,60),[self.rect.x-8, self.rect.y-5, self.health_max,5])
+        pygame.draw.rect(surface,(111,210,46),[self.rect.x-8,self.rect.y-5,self.health,5])
 
     def damage(self,amount):
 
