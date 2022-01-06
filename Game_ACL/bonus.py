@@ -75,13 +75,13 @@ class VEL(Bonus):
 
 class StopShoot(Bonus):
 
-    def __init(self,game,xm,ym):
-        super().__init__(game,"StopShoot",(230,230),xm,ym)
+    def __init__(self,game,xm,ym):
+        super().__init__(game,'StopShoot',(230,230),xm,ym)
         self.point = 0
         self.vitesse = 0
         self.vie = 0
         self.name = StopShoot
-        self.image = pygame.image.load(f'assets/VEL.png')
+        self.image = pygame.image.load(f'assets/StopShoot.png')
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image.get_rect()
         self.rect.x = xm

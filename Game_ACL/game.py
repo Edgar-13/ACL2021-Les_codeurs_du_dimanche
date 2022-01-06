@@ -10,7 +10,7 @@ from projectileMonster import Projectile_monster
 from projectile import Projectile
 import monster
 import bonus
-from bonus import CinquantePoints,CentPoints,LIFE,VEL
+from bonus import CinquantePoints,CentPoints,LIFE,VEL,StopShoot
 from sounds import SoundManager
 
 
@@ -107,7 +107,7 @@ class Game():
         "Bonus"
         self.all_bonus = pygame.sprite.Group()
         self.bonus=[[[CinquantePoints,self.screen_width * 5 / 6, 30*self.screen_height/810],
-                     [LIFE,180,150],[VEL,self.screen_width * 5.5 / 6, 150*self.screen_height/810]],[[CentPoints,self.screen_width * 5.5 / 6, 30*self.screen_height/810],
+                     [LIFE,180,150],[StopShoot,self.screen_width * 5.5 / 6, 150*self.screen_height/810]],[[CentPoints,self.screen_width * 5.5 / 6, 30*self.screen_height/810],
                      [LIFE,550,450],[VEL,self.screen_width * 5.5 / 6, 300*self.screen_height/810]],[],[[LIFE,0.55 * self.screen_width, self.screen_height * 0.72],[CinquantePoints,0.33 * self.screen_width, self.screen_height * 0.72]]]
 
     #création spite arrivée
