@@ -71,15 +71,15 @@ class Monster(pygame.sprite.Sprite):
                 self.condition_mov=False
             else:
                 self.condition_mov=True
-        if self.rect.x>200*self.game.screen_width/810:
-            limit_right = 750*self.game.screen_width/810
+        if self.rect.x>250*self.game.screen_width/810:
+            limit_right = 1000*self.game.screen_width/810
             limit_left = 250*self.game.screen_width/810
         else:
             limit_right = 200*self.game.screen_width/810
-            limit_left = 0
+            limit_left = 00
         if self.condition_mov:
             self.move_right()
-            if self.rect.x>=limit_right:
+            if self.rect.x>=limit_right or self.rect.x>self.game.screen_width-50:
                 self.condition_mov = False
         else:
             self.move_left()
